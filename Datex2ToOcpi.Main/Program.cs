@@ -1,4 +1,6 @@
-﻿namespace Datex2ToOcpi.Main
+﻿using System;
+
+namespace Datex2ToOcpi.Main
 {
     internal class Program
     {
