@@ -2,4 +2,5 @@
 <Solution>
     <Project Path="Datex2ToOcpi.Main/Datex2ToOcpi.Main.csproj" />
     <Project Path="OCM.API.Model/OCM.API.Common.Model.csproj" />
+    <Project Path="Datex2ToOcpi.Core/Datex2ToOcpi.Core.csproj" />
 </Solution>
