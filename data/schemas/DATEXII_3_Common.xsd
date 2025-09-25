@@ -1,2241 +1,1582 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xs:schema elementFormDefault="qualified"
-           attributeFormDefault="unqualified"
-           xmlns:com="http://datex2.eu/schema/3/common"
-           version="3.3"
-           targetNamespace="http://datex2.eu/schema/3/common"
-           xmlns:comx="http://datex2.eu/schema/3/commonExtension"
-           xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:import namespace="http://datex2.eu/schema/3/commonExtension"
-               schemaLocation="DATEXII_3_CommonExtension.xsd" />
-    <xs:complexType name="_CalendarWeekWithinMonthEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:CalendarWeekWithinMonthEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_ComparisonOperatorEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:ComparisonOperatorEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_ComputationMethodEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:ComputationMethodEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_ConfidentialityValueEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:ConfidentialityValueEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_DangerousGoodsRegulationsEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:DangerousGoodsRegulationsEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_DayEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:DayEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_DayWeekMonthExtensionType">
+<xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:com="http://datex2.eu/schema/3/common" version="3.3" targetNamespace="http://datex2.eu/schema/3/common" xmlns:comx="http://datex2.eu/schema/3/commonExtension" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://datex2.eu/schema/3/commonExtension" schemaLocation="DATEXII_3_CommonExtension.xsd"/>
+  <xs:complexType name="_CalendarWeekWithinMonthEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:CalendarWeekWithinMonthEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_ComparisonOperatorEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:ComparisonOperatorEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_ComputationMethodEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:ComputationMethodEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_ConfidentialityValueEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:ConfidentialityValueEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_DangerousGoodsRegulationsEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:DangerousGoodsRegulationsEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_DayEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:DayEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_DayWeekMonthExtensionType">
+    <xs:sequence>
+      <xs:element name="dayWeekMonthExtended" type="comx:DayWeekMonthExtended" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_DirectionCompassEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:DirectionCompassEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_EmissionClassificationEuroEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:EmissionClassificationEuroEnum">
+        <xs:attribute name="_extendedValue" type="com:_EmissionClassificationEuroEnumExtensionType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="_EmissionClassificationEuroEnumExtensionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="euroUnknown"/>
+      <xs:enumeration value="euroI"/>
+      <xs:enumeration value="euroII"/>
+      <xs:enumeration value="euroIII"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="_EmissionsExtensionType">
+    <xs:sequence>
+      <xs:element name="emissionsExtension" type="comx:EmissionsExtension" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_ExtensionType">
+    <xs:sequence>
+      <xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_FaultSeverityEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:FaultSeverityEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_FaultUrgencyEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:FaultUrgencyEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_FuelTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:FuelTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_HazardousMaterialsExtensionType">
+    <xs:sequence>
+      <xs:element name="dangerousGoodsExtended" type="comx:DangerousGoodsExtended" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_InformationDeliveryServicesEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:InformationDeliveryServicesEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_InformationStatusEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:InformationStatusEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_InstanceOfDayEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:InstanceOfDayEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_LoadTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:LoadTypeEnum">
+        <xs:attribute name="_extendedValue" type="com:_LoadTypeEnumExtensionType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="_LoadTypeEnumExtensionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dangerousGoods"/>
+      <xs:enumeration value="passenger"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="_LowEmissionLevelEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:LowEmissionLevelEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_MonthOfYearEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:MonthOfYearEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_PeriodExtensionType">
+    <xs:sequence>
+      <xs:element name="periodExtended" type="comx:PeriodExtended" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_PollutantTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:PollutantTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_PrecipitationIntensityEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:PrecipitationIntensityEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_PrecipitationTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:PrecipitationTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_PublicEventTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:PublicEventTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_SourceTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:SourceTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_SpecialDayTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:SpecialDayTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_TimePrecisionEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:TimePrecisionEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_TrafficTrendTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:TrafficTrendTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_UrlLinkTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:UrlLinkTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_ValidityStatusEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:ValidityStatusEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_VehicleCharacteristicsExtensionType">
+    <xs:sequence>
+      <xs:element name="vehicleCharacteristicsExtended" type="comx:VehicleCharacteristicsExtended" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_VehicleEquipmentEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:VehicleEquipmentEnum">
+        <xs:attribute name="_extendedValue" type="com:_VehicleEquipmentEnumExtensionType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="_VehicleEquipmentEnumExtensionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dippedHeadlightsInUse"/>
+      <xs:enumeration value="speedLimiterInUse"/>
+      <xs:enumeration value="electronicTollEquipment"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="_VehicleStatusEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:VehicleStatusEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_VehicleTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:VehicleTypeEnum">
+        <xs:attribute name="_extendedValue" type="com:_VehicleTypeEnumExtensionType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="_VehicleTypeEnumExtensionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="animalDrawnVehicles"/>
+      <xs:enumeration value="electricVehicles"/>
+      <xs:enumeration value="passengerCarWithTrailer"/>
+      <xs:enumeration value="motorizedVehicles"/>
+      <xs:enumeration value="goodsVehicles"/>
+      <xs:enumeration value="nonMotorizedVehicles"/>
+      <xs:enumeration value="handcarts"/>
+      <xs:enumeration value="soloMotorcycle"/>
+      <xs:enumeration value="motorizedVehiclesWithoutNumberPlate"/>
+      <xs:enumeration value="motorQuadricycles"/>
+      <xs:enumeration value="motorisedPersonalTransportDevices"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="_VehicleUsageEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:VehicleUsageEnum">
+        <xs:attribute name="_extendedValue" type="com:_VehicleUsageEnumExtensionType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="_VehicleUsageEnumExtensionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="removals"/>
+      <xs:enumeration value="circus"/>
+      <xs:enumeration value="funFair"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="_WeatherRelatedRoadConditionTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:WeatherRelatedRoadConditionTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_WeightTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:WeightTypeEnum">
+        <xs:attribute name="_extendedValue" type="com:_WeightTypeEnumExtensionType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="_WeightTypeEnumExtensionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="combinedMaximumPermitted"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="_WinterEquipmentManagementTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="com:WinterEquipmentManagementTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="AngleInDegrees">
+    <xs:restriction base="com:NonNegativeInteger">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="359"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ApplicationRateValue">
+    <xs:complexContent>
+      <xs:extension base="com:DataValue">
         <xs:sequence>
-            <xs:element name="dayWeekMonthExtended"
-                        type="comx:DayWeekMonthExtended"
-                        minOccurs="0" />
-            <xs:any namespace="##other"
-                    processContents="lax"
-                    minOccurs="0"
-                    maxOccurs="unbounded" />
+          <xs:element name="applicationRate" type="com:IntensityKilogramsPerSquareMetre" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_applicationRateValueExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="_DirectionCompassEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:DirectionCompassEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_EmissionClassificationEuroEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:EmissionClassificationEuroEnum">
-                <xs:attribute name="_extendedValue"
-                              type="com:_EmissionClassificationEuroEnumExtensionType" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:simpleType name="_EmissionClassificationEuroEnumExtensionType">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="euroUnknown" />
-            <xs:enumeration value="euroI" />
-            <xs:enumeration value="euroII" />
-            <xs:enumeration value="euroIII" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="_EmissionsExtensionType">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AxleSpacing">
+    <xs:sequence>
+      <xs:element name="axleSpacing" type="com:MetresAsFloat" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="axleSpacingSequenceIdentifier" type="com:NonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="_axleSpacingExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="AxlesPerHour">
+    <xs:restriction base="com:NonNegativeInteger"/>
+  </xs:simpleType>
+  <xs:complexType name="AxleWeight">
+    <xs:sequence>
+      <xs:element name="axlePositionIdentifier" type="com:NonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="axleWeight" type="com:Tonnes" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="maximumPermittedAxleWeight" type="com:Tonnes" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="_axleWeightExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="Base64Binary">
+    <xs:restriction base="xs:base64Binary"/>
+  </xs:simpleType>
+  <xs:simpleType name="Boolean">
+    <xs:restriction base="xs:boolean"/>
+  </xs:simpleType>
+  <xs:complexType name="CalendarWeekWithinMonth">
+    <xs:complexContent>
+      <xs:extension base="com:DayWeekMonth">
         <xs:sequence>
-            <xs:element name="emissionsExtension"
-                        type="comx:EmissionsExtension"
-                        minOccurs="0" />
-            <xs:any namespace="##other"
-                    processContents="lax"
-                    minOccurs="0"
-                    maxOccurs="unbounded" />
+          <xs:element name="applicableCalenderWeekWithinMonth" type="com:_CalendarWeekWithinMonthEnum" minOccurs="1" maxOccurs="6"/>
+          <xs:element name="_calendarWeekWithinMonthExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="_ExtensionType">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="CalendarWeekWithinMonthEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="firstWeek"/>
+      <xs:enumeration value="secondWeek"/>
+      <xs:enumeration value="thirdWeek"/>
+      <xs:enumeration value="fourthWeek"/>
+      <xs:enumeration value="fifthWeek"/>
+      <xs:enumeration value="sixthWeek"/>
+      <xs:enumeration value="lastWeek"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ComparisonOperatorEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="equalTo"/>
+      <xs:enumeration value="greaterThan"/>
+      <xs:enumeration value="greaterThanOrEqualTo"/>
+      <xs:enumeration value="lessThan"/>
+      <xs:enumeration value="lessThanOrEqualTo"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ComputationMethodEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="arithmeticAverageOfSamplesBasedOnAFixedNumberOfSamples"/>
+      <xs:enumeration value="arithmeticAverageOfSamplesInATimePeriod"/>
+      <xs:enumeration value="harmonicAverageOfSamplesInATimePeriod"/>
+      <xs:enumeration value="medianOfSamplesInATimePeriod"/>
+      <xs:enumeration value="movingAverageOfSamples"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ConcentrationKilogramsPerCubicMetre">
+    <xs:restriction base="com:Float"/>
+  </xs:simpleType>
+  <xs:simpleType name="ConcentrationMicrogramsPerCubicMetre">
+    <xs:restriction base="com:Float"/>
+  </xs:simpleType>
+  <xs:simpleType name="ConfidentialityValueEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="internalUse"/>
+      <xs:enumeration value="noRestriction"/>
+      <xs:enumeration value="restrictedToAuthorities"/>
+      <xs:enumeration value="restrictedToAuthoritiesAndTrafficOperators"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CountryCode">
+    <xs:restriction base="com:String">
+      <xs:maxLength value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CubicMetres">
+    <xs:restriction base="com:Float"/>
+  </xs:simpleType>
+  <xs:simpleType name="DangerousGoodsRegulationsEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="adr"/>
+      <xs:enumeration value="iataIcao"/>
+      <xs:enumeration value="imoImdg"/>
+      <xs:enumeration value="railroadDangerousGoodsBook"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="DataValue" abstract="true">
+    <xs:sequence>
+      <xs:element name="dataError" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="reasonForDataError" type="com:MultilingualString" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="_dataValueExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="accuracy" type="com:Percentage" use="optional"/>
+    <xs:attribute name="computationalMethod" type="com:ComputationMethodEnum" use="optional"/>
+    <xs:attribute name="numberOfIncompleteInputs" type="com:NonNegativeInteger" use="optional"/>
+    <xs:attribute name="numberOfInputValuesUsed" type="com:NonNegativeInteger" use="optional"/>
+    <xs:attribute name="smoothingFactor" type="com:Float" use="optional"/>
+    <xs:attribute name="standardDeviation" type="com:Float" use="optional"/>
+    <xs:attribute name="supplierCalculatedDataQuality" type="com:Percentage" use="optional"/>
+  </xs:complexType>
+  <xs:simpleType name="Date">
+    <xs:restriction base="xs:date"/>
+  </xs:simpleType>
+  <xs:simpleType name="DateTime">
+    <xs:restriction base="xs:dateTime"/>
+  </xs:simpleType>
+  <xs:simpleType name="DayEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="monday"/>
+      <xs:enumeration value="tuesday"/>
+      <xs:enumeration value="wednesday"/>
+      <xs:enumeration value="thursday"/>
+      <xs:enumeration value="friday"/>
+      <xs:enumeration value="saturday"/>
+      <xs:enumeration value="sunday"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="DayWeekMonth">
+    <xs:sequence>
+      <xs:element name="applicableDay" type="com:_DayEnum" minOccurs="0" maxOccurs="7"/>
+      <xs:element name="applicableMonth" type="com:_MonthOfYearEnum" minOccurs="0" maxOccurs="12"/>
+      <xs:element name="_dayWeekMonthExtension" type="com:_DayWeekMonthExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="Decimal">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:complexType name="DirectionBearingValue">
+    <xs:complexContent>
+      <xs:extension base="com:DataValue">
         <xs:sequence>
-            <xs:any namespace="##any"
-                    processContents="lax"
-                    minOccurs="0"
-                    maxOccurs="unbounded" />
+          <xs:element name="directionBearing" type="com:AngleInDegrees" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_directionBearingValueExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="_FaultSeverityEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:FaultSeverityEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_FaultUrgencyEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:FaultUrgencyEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_FuelTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:FuelTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_HazardousMaterialsExtensionType">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="DirectionCompassEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="east"/>
+      <xs:enumeration value="eastNorthEast"/>
+      <xs:enumeration value="eastSouthEast"/>
+      <xs:enumeration value="north"/>
+      <xs:enumeration value="northEast"/>
+      <xs:enumeration value="northNorthEast"/>
+      <xs:enumeration value="northNorthWest"/>
+      <xs:enumeration value="northWest"/>
+      <xs:enumeration value="south"/>
+      <xs:enumeration value="southEast"/>
+      <xs:enumeration value="southSouthEast"/>
+      <xs:enumeration value="southSouthWest"/>
+      <xs:enumeration value="southWest"/>
+      <xs:enumeration value="west"/>
+      <xs:enumeration value="westNorthWest"/>
+      <xs:enumeration value="westSouthWest"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="DirectionCompassValue">
+    <xs:complexContent>
+      <xs:extension base="com:DataValue">
         <xs:sequence>
-            <xs:element name="dangerousGoodsExtended"
-                        type="comx:DangerousGoodsExtended"
-                        minOccurs="0" />
-            <xs:any namespace="##other"
-                    processContents="lax"
-                    minOccurs="0"
-                    maxOccurs="unbounded" />
+          <xs:element name="directionCompass" type="com:_DirectionCompassEnum" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_directionCompassValueExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="_InformationDeliveryServicesEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:InformationDeliveryServicesEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_InformationStatusEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:InformationStatusEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_InstanceOfDayEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:InstanceOfDayEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_LoadTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:LoadTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="com:_LoadTypeEnumExtensionType" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:simpleType name="_LoadTypeEnumExtensionType">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="dangerousGoods" />
-            <xs:enumeration value="passenger" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="_LowEmissionLevelEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:LowEmissionLevelEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_MonthOfYearEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:MonthOfYearEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_PeriodExtensionType">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="Double">
+    <xs:restriction base="xs:double"/>
+  </xs:simpleType>
+  <xs:simpleType name="EmissionClassificationEuroEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="euro5"/>
+      <xs:enumeration value="euro5a"/>
+      <xs:enumeration value="euro5b"/>
+      <xs:enumeration value="euro6"/>
+      <xs:enumeration value="euro6a"/>
+      <xs:enumeration value="euro6b"/>
+      <xs:enumeration value="euro6c"/>
+      <xs:enumeration value="euroV"/>
+      <xs:enumeration value="euroVI"/>
+      <xs:enumeration value="other"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Emissions">
+    <xs:sequence>
+      <xs:element name="emissionClassificationEuro" type="com:_EmissionClassificationEuroEnum" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="emissionClassificationOther" type="com:String" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="emissionLevel" type="com:_LowEmissionLevelEnum" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="_emissionsExtension" type="com:_EmissionsExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Fault">
+    <xs:sequence>
+      <xs:element name="faultIdentifier" type="com:String" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="faultDescription" type="com:MultilingualString" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="faultCreationTime" type="com:DateTime" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="faultLastUpdateTime" type="com:DateTime" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="faultImpactSeverity" type="com:_FaultSeverityEnum" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="faultUrgencyToRectify" type="com:_FaultUrgencyEnum" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="manufacturerFaultCode" type="com:String" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="_faultExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="FaultSeverityEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="low"/>
+      <xs:enumeration value="medium"/>
+      <xs:enumeration value="high"/>
+      <xs:enumeration value="unknown"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FaultUrgencyEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="normal"/>
+      <xs:enumeration value="urgent"/>
+      <xs:enumeration value="extremelyUrgent"/>
+      <xs:enumeration value="unknown"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Float">
+    <xs:restriction base="xs:float"/>
+  </xs:simpleType>
+  <xs:complexType name="FloatingPointMetreDistanceValue">
+    <xs:complexContent>
+      <xs:extension base="com:DataValue">
         <xs:sequence>
-            <xs:element name="periodExtended"
-                        type="comx:PeriodExtended"
-                        minOccurs="0" />
-            <xs:any namespace="##other"
-                    processContents="lax"
-                    minOccurs="0"
-                    maxOccurs="unbounded" />
+          <xs:element name="distance" type="com:MetresAsFloat" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_floatingPointMetreDistanceValueExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="_PollutantTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:PollutantTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_PrecipitationIntensityEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:PrecipitationIntensityEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_PrecipitationTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:PrecipitationTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_PublicEventTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:PublicEventTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_SourceTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:SourceTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_SpecialDayTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:SpecialDayTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_TimePrecisionEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:TimePrecisionEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_TrafficTrendTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:TrafficTrendTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_UrlLinkTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:UrlLinkTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_ValidityStatusEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:ValidityStatusEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_VehicleCharacteristicsExtensionType">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FrictionValue">
+    <xs:complexContent>
+      <xs:extension base="com:DataValue">
         <xs:sequence>
-            <xs:element name="vehicleCharacteristicsExtended"
-                        type="comx:VehicleCharacteristicsExtended"
-                        minOccurs="0" />
-            <xs:any namespace="##other"
-                    processContents="lax"
-                    minOccurs="0"
-                    maxOccurs="unbounded" />
+          <xs:element name="friction" type="com:Float" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_frictionValueExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="_VehicleEquipmentEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:VehicleEquipmentEnum">
-                <xs:attribute name="_extendedValue"
-                              type="com:_VehicleEquipmentEnumExtensionType" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:simpleType name="_VehicleEquipmentEnumExtensionType">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="dippedHeadlightsInUse" />
-            <xs:enumeration value="speedLimiterInUse" />
-            <xs:enumeration value="electronicTollEquipment" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="_VehicleStatusEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:VehicleStatusEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_VehicleTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:VehicleTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="com:_VehicleTypeEnumExtensionType" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:simpleType name="_VehicleTypeEnumExtensionType">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="animalDrawnVehicles" />
-            <xs:enumeration value="electricVehicles" />
-            <xs:enumeration value="passengerCarWithTrailer" />
-            <xs:enumeration value="motorizedVehicles" />
-            <xs:enumeration value="goodsVehicles" />
-            <xs:enumeration value="nonMotorizedVehicles" />
-            <xs:enumeration value="handcarts" />
-            <xs:enumeration value="soloMotorcycle" />
-            <xs:enumeration value="motorizedVehiclesWithoutNumberPlate" />
-            <xs:enumeration value="motorQuadricycles" />
-            <xs:enumeration value="motorisedPersonalTransportDevices" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="_VehicleUsageEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:VehicleUsageEnum">
-                <xs:attribute name="_extendedValue"
-                              type="com:_VehicleUsageEnumExtensionType" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:simpleType name="_VehicleUsageEnumExtensionType">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="removals" />
-            <xs:enumeration value="circus" />
-            <xs:enumeration value="funFair" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="_WeatherRelatedRoadConditionTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:WeatherRelatedRoadConditionTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_WeightTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:WeightTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="com:_WeightTypeEnumExtensionType" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:simpleType name="_WeightTypeEnumExtensionType">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="combinedMaximumPermitted" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="_WinterEquipmentManagementTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="com:WinterEquipmentManagementTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:simpleType name="AngleInDegrees">
-        <xs:restriction base="com:NonNegativeInteger">
-            <xs:minInclusive value="0" />
-            <xs:maxInclusive value="359" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="ApplicationRateValue">
-        <xs:complexContent>
-            <xs:extension base="com:DataValue">
-                <xs:sequence>
-                    <xs:element name="applicationRate"
-                                type="com:IntensityKilogramsPerSquareMetre"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_applicationRateValueExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="AxleSpacing">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="FuelTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="all"/>
+      <xs:enumeration value="battery"/>
+      <xs:enumeration value="biodiesel"/>
+      <xs:enumeration value="diesel"/>
+      <xs:enumeration value="dieselBatteryHybrid"/>
+      <xs:enumeration value="ethanol"/>
+      <xs:enumeration value="hydrogen"/>
+      <xs:enumeration value="liquidGas"/>
+      <xs:enumeration value="lpg"/>
+      <xs:enumeration value="methane"/>
+      <xs:enumeration value="petrol"/>
+      <xs:enumeration value="petrol95Octane"/>
+      <xs:enumeration value="petrol98Octane"/>
+      <xs:enumeration value="petrolBatteryHybrid"/>
+      <xs:enumeration value="petrolLeaded"/>
+      <xs:enumeration value="petrolUnleaded"/>
+      <xs:enumeration value="unknown"/>
+      <xs:enumeration value="other"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="GenericPublication">
+    <xs:complexContent>
+      <xs:extension base="com:PayloadPublication">
         <xs:sequence>
-            <xs:element name="axleSpacing"
-                        type="com:MetresAsFloat"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="axleSpacingSequenceIdentifier"
-                        type="com:NonNegativeInteger"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="_axleSpacingExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
+          <xs:element name="genericPublicationName" type="com:String" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_genericPublicationExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="AxlesPerHour">
-        <xs:restriction base="com:NonNegativeInteger" />
-    </xs:simpleType>
-    <xs:complexType name="AxleWeight">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GlobalReference" abstract="true">
+    <xs:sequence>
+      <xs:element name="externalPublicationIdentifier" type="com:String" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="externalPublisher" type="com:InternationalIdentifier" minOccurs="0"/>
+      <xs:element name="_globalReferenceExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GrossWeightCharacteristic">
+    <xs:sequence>
+      <xs:element name="comparisonOperator" type="com:_ComparisonOperatorEnum" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="grossVehicleWeight" type="com:Tonnes" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="typeOfWeight" type="com:_WeightTypeEnum" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="_grossWeightCharacteristicExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GroupOfVehiclesInvolved">
+    <xs:sequence>
+      <xs:element name="numberOfVehicles" type="com:NonNegativeInteger" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="vehicleStatus" type="com:_VehicleStatusEnum" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="vehicleCharacteristics" type="com:VehicleCharacteristics" minOccurs="0"/>
+      <xs:element name="_groupOfVehiclesInvolvedExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HazardousMaterials">
+    <xs:sequence>
+      <xs:element name="chemicalName" type="com:MultilingualString" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="dangerousGoodsFlashPoint" type="com:TemperatureCelsius" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="dangerousGoodsRegulations" type="com:_DangerousGoodsRegulationsEnum" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="hazardCodeIdentification" type="com:String" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="hazardCodeVersionNumber" type="com:NonNegativeInteger" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="hazardSubstanceItemPageNumber" type="com:String" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="tremCardNumber" type="com:String" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="undgNumber" type="com:String" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="volumeOfDangerousGoods" type="com:CubicMetres" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="weightOfDangerousGoods" type="com:Tonnes" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="_hazardousMaterialsExtension" type="com:_HazardousMaterialsExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HeaderInformation">
+    <xs:sequence>
+      <xs:element name="confidentiality" type="com:_ConfidentialityValueEnum" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="allowedDeliveryChannel" type="com:_InformationDeliveryServicesEnum" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="informationStatus" type="com:_InformationStatusEnum" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="_headerInformationExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HeaviestAxleWeightCharacteristic">
+    <xs:sequence>
+      <xs:element name="comparisonOperator" type="com:_ComparisonOperatorEnum" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="heaviestAxleWeight" type="com:Tonnes" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="_heaviestAxleWeightCharacteristicExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="Hectopascal">
+    <xs:restriction base="com:Float"/>
+  </xs:simpleType>
+  <xs:complexType name="HeightCharacteristic">
+    <xs:sequence>
+      <xs:element name="comparisonOperator" type="com:_ComparisonOperatorEnum" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="vehicleHeight" type="com:MetresAsFloat" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="_heightCharacteristicExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Humidity">
+    <xs:sequence>
+      <xs:element name="relativeHumidity" type="com:PercentageValue"/>
+      <xs:element name="_humidityExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="InformationDeliveryServicesEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="anyGeneralDeliveryService"/>
+      <xs:enumeration value="safetyServices"/>
+      <xs:enumeration value="vms"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="InformationStatusEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="real"/>
+      <xs:enumeration value="securityExercise"/>
+      <xs:enumeration value="technicalExercise"/>
+      <xs:enumeration value="test"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="InstanceOfDayEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="firstInstance"/>
+      <xs:enumeration value="secondInstance"/>
+      <xs:enumeration value="thirdInstance"/>
+      <xs:enumeration value="fourthInstance"/>
+      <xs:enumeration value="fifthInstance"/>
+      <xs:enumeration value="lastInstance"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="InstanceOfDayWithinMonth">
+    <xs:complexContent>
+      <xs:extension base="com:DayWeekMonth">
         <xs:sequence>
-            <xs:element name="axlePositionIdentifier"
-                        type="com:NonNegativeInteger"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="axleWeight"
-                        type="com:Tonnes"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="maximumPermittedAxleWeight"
-                        type="com:Tonnes"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="_axleWeightExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
+          <xs:element name="applicableInstanceOfDayWithinMonth" type="com:_InstanceOfDayEnum" minOccurs="1" maxOccurs="5"/>
+          <xs:element name="_instanceOfDayWithinMonthExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="Base64Binary">
-        <xs:restriction base="xs:base64Binary" />
-    </xs:simpleType>
-    <xs:simpleType name="Boolean">
-        <xs:restriction base="xs:boolean" />
-    </xs:simpleType>
-    <xs:complexType name="CalendarWeekWithinMonth">
-        <xs:complexContent>
-            <xs:extension base="com:DayWeekMonth">
-                <xs:sequence>
-                    <xs:element name="applicableCalenderWeekWithinMonth"
-                                type="com:_CalendarWeekWithinMonthEnum"
-                                minOccurs="1"
-                                maxOccurs="6" />
-                    <xs:element name="_calendarWeekWithinMonthExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="CalendarWeekWithinMonthEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="firstWeek" />
-            <xs:enumeration value="secondWeek" />
-            <xs:enumeration value="thirdWeek" />
-            <xs:enumeration value="fourthWeek" />
-            <xs:enumeration value="fifthWeek" />
-            <xs:enumeration value="sixthWeek" />
-            <xs:enumeration value="lastWeek" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="ComparisonOperatorEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="equalTo" />
-            <xs:enumeration value="greaterThan" />
-            <xs:enumeration value="greaterThanOrEqualTo" />
-            <xs:enumeration value="lessThan" />
-            <xs:enumeration value="lessThanOrEqualTo" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="ComputationMethodEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="arithmeticAverageOfSamplesBasedOnAFixedNumberOfSamples" />
-            <xs:enumeration value="arithmeticAverageOfSamplesInATimePeriod" />
-            <xs:enumeration value="harmonicAverageOfSamplesInATimePeriod" />
-            <xs:enumeration value="medianOfSamplesInATimePeriod" />
-            <xs:enumeration value="movingAverageOfSamples" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="ConcentrationKilogramsPerCubicMetre">
-        <xs:restriction base="com:Float" />
-    </xs:simpleType>
-    <xs:simpleType name="ConcentrationMicrogramsPerCubicMetre">
-        <xs:restriction base="com:Float" />
-    </xs:simpleType>
-    <xs:simpleType name="ConfidentialityValueEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="internalUse" />
-            <xs:enumeration value="noRestriction" />
-            <xs:enumeration value="restrictedToAuthorities" />
-            <xs:enumeration value="restrictedToAuthoritiesAndTrafficOperators" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="CountryCode">
-        <xs:restriction base="com:String">
-            <xs:maxLength value="2" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="CubicMetres">
-        <xs:restriction base="com:Float" />
-    </xs:simpleType>
-    <xs:simpleType name="DangerousGoodsRegulationsEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="adr" />
-            <xs:enumeration value="iataIcao" />
-            <xs:enumeration value="imoImdg" />
-            <xs:enumeration value="railroadDangerousGoodsBook" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="DataValue"
-                    abstract="true">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="Integer">
+    <xs:restriction base="xs:integer"/>
+  </xs:simpleType>
+  <xs:complexType name="IntegerMetreDistanceValue">
+    <xs:complexContent>
+      <xs:extension base="com:DataValue">
         <xs:sequence>
-            <xs:element name="dataError"
-                        type="com:Boolean"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="reasonForDataError"
-                        type="com:MultilingualString"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="_dataValueExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
+          <xs:element name="integerMetreDistance" type="com:MetresAsNonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_integerMetreDistanceValueExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-        <xs:attribute name="accuracy"
-                      type="com:Percentage"
-                      use="optional" />
-        <xs:attribute name="computationalMethod"
-                      type="com:ComputationMethodEnum"
-                      use="optional" />
-        <xs:attribute name="numberOfIncompleteInputs"
-                      type="com:NonNegativeInteger"
-                      use="optional" />
-        <xs:attribute name="numberOfInputValuesUsed"
-                      type="com:NonNegativeInteger"
-                      use="optional" />
-        <xs:attribute name="smoothingFactor"
-                      type="com:Float"
-                      use="optional" />
-        <xs:attribute name="standardDeviation"
-                      type="com:Float"
-                      use="optional" />
-        <xs:attribute name="supplierCalculatedDataQuality"
-                      type="com:Percentage"
-                      use="optional" />
-    </xs:complexType>
-    <xs:simpleType name="Date">
-        <xs:restriction base="xs:date" />
-    </xs:simpleType>
-    <xs:simpleType name="DateTime">
-        <xs:restriction base="xs:dateTime" />
-    </xs:simpleType>
-    <xs:simpleType name="DayEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="monday" />
-            <xs:enumeration value="tuesday" />
-            <xs:enumeration value="wednesday" />
-            <xs:enumeration value="thursday" />
-            <xs:enumeration value="friday" />
-            <xs:enumeration value="saturday" />
-            <xs:enumeration value="sunday" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="DayWeekMonth">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="IntensityKilogramsPerSquareMetre">
+    <xs:restriction base="com:Float"/>
+  </xs:simpleType>
+  <xs:simpleType name="IntensityMillimetresPerHour">
+    <xs:restriction base="com:Float"/>
+  </xs:simpleType>
+  <xs:complexType name="InternationalIdentifier">
+    <xs:sequence>
+      <xs:element name="country" type="com:CountryCode" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="nationalIdentifier" type="com:String" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="_internationalIdentifierExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="KilogramsConcentrationValue">
+    <xs:complexContent>
+      <xs:extension base="com:DataValue">
         <xs:sequence>
-            <xs:element name="applicableDay"
-                        type="com:_DayEnum"
-                        minOccurs="0"
-                        maxOccurs="7" />
-            <xs:element name="applicableMonth"
-                        type="com:_MonthOfYearEnum"
-                        minOccurs="0"
-                        maxOccurs="12" />
-            <xs:element name="_dayWeekMonthExtension"
-                        type="com:_DayWeekMonthExtensionType"
-                        minOccurs="0" />
+          <xs:element name="kilogramsConcentration" type="com:ConcentrationKilogramsPerCubicMetre" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_kilogramsConcentrationValueExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="Decimal">
-        <xs:restriction base="xs:decimal" />
-    </xs:simpleType>
-    <xs:complexType name="DirectionBearingValue">
-        <xs:complexContent>
-            <xs:extension base="com:DataValue">
-                <xs:sequence>
-                    <xs:element name="directionBearing"
-                                type="com:AngleInDegrees"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_directionBearingValueExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="DirectionCompassEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="east" />
-            <xs:enumeration value="eastNorthEast" />
-            <xs:enumeration value="eastSouthEast" />
-            <xs:enumeration value="north" />
-            <xs:enumeration value="northEast" />
-            <xs:enumeration value="northNorthEast" />
-            <xs:enumeration value="northNorthWest" />
-            <xs:enumeration value="northWest" />
-            <xs:enumeration value="south" />
-            <xs:enumeration value="southEast" />
-            <xs:enumeration value="southSouthEast" />
-            <xs:enumeration value="southSouthWest" />
-            <xs:enumeration value="southWest" />
-            <xs:enumeration value="west" />
-            <xs:enumeration value="westNorthWest" />
-            <xs:enumeration value="westSouthWest" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="DirectionCompassValue">
-        <xs:complexContent>
-            <xs:extension base="com:DataValue">
-                <xs:sequence>
-                    <xs:element name="directionCompass"
-                                type="com:_DirectionCompassEnum"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_directionCompassValueExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="Double">
-        <xs:restriction base="xs:double" />
-    </xs:simpleType>
-    <xs:simpleType name="EmissionClassificationEuroEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="euro5" />
-            <xs:enumeration value="euro5a" />
-            <xs:enumeration value="euro5b" />
-            <xs:enumeration value="euro6" />
-            <xs:enumeration value="euro6a" />
-            <xs:enumeration value="euro6b" />
-            <xs:enumeration value="euro6c" />
-            <xs:enumeration value="euroV" />
-            <xs:enumeration value="euroVI" />
-            <xs:enumeration value="other" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="Emissions">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="KilometresPerHour">
+    <xs:restriction base="com:Float"/>
+  </xs:simpleType>
+  <xs:simpleType name="Language">
+    <xs:restriction base="xs:language"/>
+  </xs:simpleType>
+  <xs:complexType name="LengthCharacteristic">
+    <xs:sequence>
+      <xs:element name="comparisonOperator" type="com:_ComparisonOperatorEnum" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="vehicleLength" type="com:MetresAsFloat" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="_lengthCharacteristicExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="LoadTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="abnormalLoad"/>
+      <xs:enumeration value="ammunition"/>
+      <xs:enumeration value="chemicals"/>
+      <xs:enumeration value="combustibleMaterials"/>
+      <xs:enumeration value="corrosiveMaterials"/>
+      <xs:enumeration value="debris"/>
+      <xs:enumeration value="empty"/>
+      <xs:enumeration value="explosiveMaterials"/>
+      <xs:enumeration value="extraHighLoad"/>
+      <xs:enumeration value="extraLongLoad"/>
+      <xs:enumeration value="extraWideLoad"/>
+      <xs:enumeration value="fuel"/>
+      <xs:enumeration value="glass"/>
+      <xs:enumeration value="goods"/>
+      <xs:enumeration value="hazardousMaterials"/>
+      <xs:enumeration value="liquid"/>
+      <xs:enumeration value="livestock"/>
+      <xs:enumeration value="materials"/>
+      <xs:enumeration value="materialsDangerousForPeople"/>
+      <xs:enumeration value="materialsDangerousForTheEnvironment"/>
+      <xs:enumeration value="materialsDangerousForWater"/>
+      <xs:enumeration value="oil"/>
+      <xs:enumeration value="ordinary"/>
+      <xs:enumeration value="perishableProducts"/>
+      <xs:enumeration value="petrol"/>
+      <xs:enumeration value="pharmaceuticalMaterials"/>
+      <xs:enumeration value="radioactiveMaterials"/>
+      <xs:enumeration value="refrigeratedGoods"/>
+      <xs:enumeration value="refuse"/>
+      <xs:enumeration value="toxicMaterials"/>
+      <xs:enumeration value="vehicles"/>
+      <xs:enumeration value="other"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="LongString">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="LowEmissionLevelEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="lowLevelEmission"/>
+      <xs:enumeration value="freeOfEmission"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MetresAsFloat">
+    <xs:restriction base="com:Float"/>
+  </xs:simpleType>
+  <xs:simpleType name="MetresAsNonNegativeInteger">
+    <xs:restriction base="com:NonNegativeInteger"/>
+  </xs:simpleType>
+  <xs:simpleType name="MetresPerSecond">
+    <xs:restriction base="com:Float"/>
+  </xs:simpleType>
+  <xs:complexType name="MicrogramsConcentrationValue">
+    <xs:complexContent>
+      <xs:extension base="com:DataValue">
         <xs:sequence>
-            <xs:element name="emissionClassificationEuro"
-                        type="com:_EmissionClassificationEuroEnum"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="emissionClassificationOther"
-                        type="com:String"
-                        minOccurs="0"
-                        maxOccurs="unbounded" />
-            <xs:element name="emissionLevel"
-                        type="com:_LowEmissionLevelEnum"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="_emissionsExtension"
-                        type="com:_EmissionsExtensionType"
-                        minOccurs="0" />
+          <xs:element name="microgramsConcentration" type="com:ConcentrationMicrogramsPerCubicMetre" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_microgramsConcentrationValueExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="Fault">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="MonthOfYearEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="january"/>
+      <xs:enumeration value="february"/>
+      <xs:enumeration value="march"/>
+      <xs:enumeration value="april"/>
+      <xs:enumeration value="may"/>
+      <xs:enumeration value="june"/>
+      <xs:enumeration value="july"/>
+      <xs:enumeration value="august"/>
+      <xs:enumeration value="september"/>
+      <xs:enumeration value="october"/>
+      <xs:enumeration value="november"/>
+      <xs:enumeration value="december"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="MultilingualString">
+    <xs:sequence>
+      <xs:element name="values">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="value" type="com:MultilingualStringValue" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MultilingualStringValue">
+    <xs:simpleContent>
+      <xs:extension base="com:MultilingualStringValueType">
+        <xs:attribute name="lang" type="xs:language"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="MultilingualStringValueType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1024"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="NamedArea" abstract="true">
+    <xs:sequence>
+      <xs:element name="_namedAreaExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="NonNegativeInteger">
+    <xs:restriction base="xs:nonNegativeInteger"/>
+  </xs:simpleType>
+  <xs:complexType name="NumberOfAxlesCharacteristic">
+    <xs:sequence>
+      <xs:element name="comparisonOperator" type="com:_ComparisonOperatorEnum" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="numberOfAxles" type="com:NonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="_numberOfAxlesCharacteristicExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OverallPeriod">
+    <xs:sequence>
+      <xs:element name="overallStartTime" type="com:DateTime" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="overallEndTime" type="com:DateTime" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="validPeriod" type="com:Period" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="exceptionPeriod" type="com:Period" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="_overallPeriodExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayloadPublication" abstract="true">
+    <xs:sequence>
+      <xs:element name="feedDescription" type="com:MultilingualString" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="feedType" type="com:String" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="publicationTime" type="com:DateTime" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="publicationCreator" type="com:InternationalIdentifier"/>
+      <xs:element name="_payloadPublicationExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="lang" type="com:Language" use="required"/>
+    <xs:attribute name="modelBaseVersion" type="xs:string" use="required" fixed="3"/>
+    <xs:attribute name="extensionName" type="xs:string" use="optional"/>
+    <xs:attribute name="extensionVersion" type="xs:string" use="optional"/>
+    <xs:attribute name="profileName" type="xs:string" use="optional"/>
+    <xs:attribute name="profileVersion" type="xs:string" use="optional"/>
+  </xs:complexType>
+  <xs:simpleType name="Percentage">
+    <xs:restriction base="com:Float"/>
+  </xs:simpleType>
+  <xs:complexType name="PercentageValue">
+    <xs:complexContent>
+      <xs:extension base="com:DataValue">
         <xs:sequence>
-            <xs:element name="faultIdentifier"
-                        type="com:String"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="faultDescription"
-                        type="com:MultilingualString"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="faultCreationTime"
-                        type="com:DateTime"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="faultLastUpdateTime"
-                        type="com:DateTime"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="faultImpactSeverity"
-                        type="com:_FaultSeverityEnum"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="faultUrgencyToRectify"
-                        type="com:_FaultUrgencyEnum"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="manufacturerFaultCode"
-                        type="com:String"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="_faultExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
+          <xs:element name="percentage" type="com:Percentage" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_percentageValueExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="FaultSeverityEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="low" />
-            <xs:enumeration value="medium" />
-            <xs:enumeration value="high" />
-            <xs:enumeration value="unknown" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="FaultUrgencyEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="normal" />
-            <xs:enumeration value="urgent" />
-            <xs:enumeration value="extremelyUrgent" />
-            <xs:enumeration value="unknown" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="Float">
-        <xs:restriction base="xs:float" />
-    </xs:simpleType>
-    <xs:complexType name="FloatingPointMetreDistanceValue">
-        <xs:complexContent>
-            <xs:extension base="com:DataValue">
-                <xs:sequence>
-                    <xs:element name="distance"
-                                type="com:MetresAsFloat"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_floatingPointMetreDistanceValueExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="FrictionValue">
-        <xs:complexContent>
-            <xs:extension base="com:DataValue">
-                <xs:sequence>
-                    <xs:element name="friction"
-                                type="com:Float"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_frictionValueExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="FuelTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="all" />
-            <xs:enumeration value="battery" />
-            <xs:enumeration value="biodiesel" />
-            <xs:enumeration value="diesel" />
-            <xs:enumeration value="dieselBatteryHybrid" />
-            <xs:enumeration value="ethanol" />
-            <xs:enumeration value="hydrogen" />
-            <xs:enumeration value="liquidGas" />
-            <xs:enumeration value="lpg" />
-            <xs:enumeration value="methane" />
-            <xs:enumeration value="petrol" />
-            <xs:enumeration value="petrol95Octane" />
-            <xs:enumeration value="petrol98Octane" />
-            <xs:enumeration value="petrolBatteryHybrid" />
-            <xs:enumeration value="petrolLeaded" />
-            <xs:enumeration value="petrolUnleaded" />
-            <xs:enumeration value="unknown" />
-            <xs:enumeration value="other" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="GenericPublication">
-        <xs:complexContent>
-            <xs:extension base="com:PayloadPublication">
-                <xs:sequence>
-                    <xs:element name="genericPublicationName"
-                                type="com:String"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_genericPublicationExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="GlobalReference"
-                    abstract="true">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Period">
+    <xs:sequence>
+      <xs:element name="startOfPeriod" type="com:DateTime" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="endOfPeriod" type="com:DateTime" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="periodName" type="com:MultilingualString" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="recurringTimePeriodOfDay" type="com:TimePeriodOfDay" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="recurringDayWeekMonthPeriod" type="com:DayWeekMonth" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="recurringSpecialDay" type="com:SpecialDay" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="_periodExtension" type="com:_PeriodExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="PollutantTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="benzeneTolueneXylene"/>
+      <xs:enumeration value="carbonMonoxide"/>
+      <xs:enumeration value="lead"/>
+      <xs:enumeration value="methane"/>
+      <xs:enumeration value="nitricOxide"/>
+      <xs:enumeration value="nitrogenDioxide"/>
+      <xs:enumeration value="nitrogenMonoxide"/>
+      <xs:enumeration value="nitrogenOxides"/>
+      <xs:enumeration value="nonMethaneHydrocarbons"/>
+      <xs:enumeration value="ozone"/>
+      <xs:enumeration value="particulates10"/>
+      <xs:enumeration value="polycyclicAromaticHydrocarbons"/>
+      <xs:enumeration value="primaryParticulate"/>
+      <xs:enumeration value="sulphurDioxide"/>
+      <xs:enumeration value="totalHydrocarbons"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Pollution">
+    <xs:sequence>
+      <xs:element name="pollutantType" type="com:_PollutantTypeEnum" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="pollutantConcentration" type="com:MicrogramsConcentrationValue" minOccurs="0"/>
+      <xs:element name="_pollutionExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PrecipitationDetail">
+    <xs:sequence>
+      <xs:element name="precipitationType" type="com:_PrecipitationTypeEnum" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="precipitationIntensityGrade" type="com:_PrecipitationIntensityEnum" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="precipitationIntensity" type="com:PrecipitationIntensityValue" minOccurs="0"/>
+      <xs:element name="depositionDepth" type="com:FloatingPointMetreDistanceValue" minOccurs="0"/>
+      <xs:element name="_precipitationDetailExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="PrecipitationIntensityEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="noPhenomena"/>
+      <xs:enumeration value="light"/>
+      <xs:enumeration value="moderate"/>
+      <xs:enumeration value="heavy"/>
+      <xs:enumeration value="violent"/>
+      <xs:enumeration value="severe"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="PrecipitationIntensityValue">
+    <xs:complexContent>
+      <xs:extension base="com:DataValue">
         <xs:sequence>
-            <xs:element name="externalPublicationIdentifier"
-                        type="com:String"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="externalPublisher"
-                        type="com:InternationalIdentifier"
-                        minOccurs="0" />
-            <xs:element name="_globalReferenceExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
+          <xs:element name="millimetresPerHourIntensity" type="com:IntensityMillimetresPerHour" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_precipitationIntensityValueExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="GrossWeightCharacteristic">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="PrecipitationTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="clearIce"/>
+      <xs:enumeration value="dew"/>
+      <xs:enumeration value="diamondDust"/>
+      <xs:enumeration value="drizzle"/>
+      <xs:enumeration value="freezingRain"/>
+      <xs:enumeration value="glaze"/>
+      <xs:enumeration value="hail"/>
+      <xs:enumeration value="hardRime"/>
+      <xs:enumeration value="hoarFrost"/>
+      <xs:enumeration value="iceCrystals"/>
+      <xs:enumeration value="icePellets"/>
+      <xs:enumeration value="liquidFreezing"/>
+      <xs:enumeration value="liquidNotFreezing"/>
+      <xs:enumeration value="noPrecipitation"/>
+      <xs:enumeration value="rain"/>
+      <xs:enumeration value="rime"/>
+      <xs:enumeration value="sleet"/>
+      <xs:enumeration value="smallHail"/>
+      <xs:enumeration value="snow"/>
+      <xs:enumeration value="snowGrains"/>
+      <xs:enumeration value="snowPellets"/>
+      <xs:enumeration value="softRime"/>
+      <xs:enumeration value="solid"/>
+      <xs:enumeration value="wetSnow"/>
+      <xs:enumeration value="whiteDev"/>
+      <xs:enumeration value="unknown"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Pressure">
+    <xs:sequence>
+      <xs:element name="pressureValue" type="com:PressureValue"/>
+      <xs:element name="_pressureExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PressureValue">
+    <xs:complexContent>
+      <xs:extension base="com:DataValue">
         <xs:sequence>
-            <xs:element name="comparisonOperator"
-                        type="com:_ComparisonOperatorEnum"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="grossVehicleWeight"
-                        type="com:Tonnes"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="typeOfWeight"
-                        type="com:_WeightTypeEnum"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="_grossWeightCharacteristicExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
+          <xs:element name="pressure" type="com:Hectopascal" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_pressureValueExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="GroupOfVehiclesInvolved">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="PublicEventTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="agriculturalShow"/>
+      <xs:enumeration value="airShow"/>
+      <xs:enumeration value="artEvent"/>
+      <xs:enumeration value="athleticsMeeting"/>
+      <xs:enumeration value="commercialEvent"/>
+      <xs:enumeration value="culturalEvent"/>
+      <xs:enumeration value="ballGame"/>
+      <xs:enumeration value="baseballGame"/>
+      <xs:enumeration value="basketballGame"/>
+      <xs:enumeration value="beerFestival"/>
+      <xs:enumeration value="bicycleRace"/>
+      <xs:enumeration value="boatRace"/>
+      <xs:enumeration value="boatShow"/>
+      <xs:enumeration value="boxingTournament"/>
+      <xs:enumeration value="bullFight"/>
+      <xs:enumeration value="ceremonialEvent"/>
+      <xs:enumeration value="concert"/>
+      <xs:enumeration value="cricketMatch"/>
+      <xs:enumeration value="exhibition"/>
+      <xs:enumeration value="fair"/>
+      <xs:enumeration value="festival"/>
+      <xs:enumeration value="filmFestival"/>
+      <xs:enumeration value="filmTVMaking"/>
+      <xs:enumeration value="fireworkDisplay"/>
+      <xs:enumeration value="flowerEvent"/>
+      <xs:enumeration value="foodFestival"/>
+      <xs:enumeration value="footballMatch"/>
+      <xs:enumeration value="funfair"/>
+      <xs:enumeration value="gardeningOrFlowerShow"/>
+      <xs:enumeration value="golfTournament"/>
+      <xs:enumeration value="hockeyGame"/>
+      <xs:enumeration value="horseRaceMeeting"/>
+      <xs:enumeration value="internationalSportsMeeting"/>
+      <xs:enumeration value="majorEvent"/>
+      <xs:enumeration value="marathon"/>
+      <xs:enumeration value="market"/>
+      <xs:enumeration value="match"/>
+      <xs:enumeration value="motorShow"/>
+      <xs:enumeration value="motorSportRaceMeeting"/>
+      <xs:enumeration value="openAirConcert"/>
+      <xs:enumeration value="parade"/>
+      <xs:enumeration value="procession"/>
+      <xs:enumeration value="raceMeeting"/>
+      <xs:enumeration value="rugbyMatch"/>
+      <xs:enumeration value="severalMajorEvents"/>
+      <xs:enumeration value="show"/>
+      <xs:enumeration value="showJumping"/>
+      <xs:enumeration value="soundAndLightShow"/>
+      <xs:enumeration value="sportsMeeting"/>
+      <xs:enumeration value="stateOccasion"/>
+      <xs:enumeration value="streetFestival"/>
+      <xs:enumeration value="tennisTournament"/>
+      <xs:enumeration value="theatricalEvent"/>
+      <xs:enumeration value="tournament"/>
+      <xs:enumeration value="tradeFair"/>
+      <xs:enumeration value="waterSportsMeeting"/>
+      <xs:enumeration value="wineFestival"/>
+      <xs:enumeration value="winterSportsMeeting"/>
+      <xs:enumeration value="unknown"/>
+      <xs:enumeration value="other"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="PublicHoliday">
+    <xs:complexContent>
+      <xs:extension base="com:SpecialDay">
         <xs:sequence>
-            <xs:element name="numberOfVehicles"
-                        type="com:NonNegativeInteger"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="vehicleStatus"
-                        type="com:_VehicleStatusEnum"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="vehicleCharacteristics"
-                        type="com:VehicleCharacteristics"
-                        minOccurs="0" />
-            <xs:element name="_groupOfVehiclesInvolvedExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
+          <xs:element name="publicHolidayName" type="com:MultilingualString" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_publicHolidayExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="HazardousMaterials">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Reference">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="RoadSurfaceConditionMeasurements">
+    <xs:sequence>
+      <xs:element name="temperatureBelowOrAboveRoadSurface" type="com:TemperatureBelowOrAboveRoadSurface" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="roadSurfaceTemperature" type="com:TemperatureValue" minOccurs="0"/>
+      <xs:element name="protectionTemperature" type="com:TemperatureValue" minOccurs="0"/>
+      <xs:element name="deIcingApplicationRate" type="com:ApplicationRateValue" minOccurs="0"/>
+      <xs:element name="deIcingConcentration" type="com:KilogramsConcentrationValue" minOccurs="0"/>
+      <xs:element name="friction" type="com:FrictionValue" minOccurs="0"/>
+      <xs:element name="depthOfSnow" type="com:FloatingPointMetreDistanceValue" minOccurs="0"/>
+      <xs:element name="waterFilmThickness" type="com:FloatingPointMetreDistanceValue" minOccurs="0"/>
+      <xs:element name="iceLayerThickness" type="com:FloatingPointMetreDistanceValue" minOccurs="0"/>
+      <xs:element name="icePercentage" type="com:PercentageValue" minOccurs="0"/>
+      <xs:element name="_roadSurfaceConditionMeasurementsExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="Seconds">
+    <xs:restriction base="com:Float"/>
+  </xs:simpleType>
+  <xs:complexType name="Source">
+    <xs:sequence>
+      <xs:element name="sourceCountry" type="com:CountryCode" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="sourceIdentification" type="com:String" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="sourceName" type="com:MultilingualString" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="sourceType" type="com:_SourceTypeEnum" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="reliable" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="_sourceExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="SourceTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="automobileClubPatrol"/>
+      <xs:enumeration value="cameraObservation"/>
+      <xs:enumeration value="freightVehicleOperator"/>
+      <xs:enumeration value="inductionLoopMonitoringStation"/>
+      <xs:enumeration value="infraredMonitoringStation"/>
+      <xs:enumeration value="microwaveMonitoringStation"/>
+      <xs:enumeration value="mobileTelephoneCaller"/>
+      <xs:enumeration value="nonPoliceEmergencyServicePatrol"/>
+      <xs:enumeration value="otherInformation"/>
+      <xs:enumeration value="otherOfficialVehicle"/>
+      <xs:enumeration value="policePatrol"/>
+      <xs:enumeration value="privateBreakdownService"/>
+      <xs:enumeration value="publicAndPrivateUtilities"/>
+      <xs:enumeration value="registeredMotoristObserver"/>
+      <xs:enumeration value="roadAuthorities"/>
+      <xs:enumeration value="roadOperatorPatrol"/>
+      <xs:enumeration value="roadsideTelephoneCaller"/>
+      <xs:enumeration value="spotterAircraft"/>
+      <xs:enumeration value="trafficMonitoringStation"/>
+      <xs:enumeration value="transitOperator"/>
+      <xs:enumeration value="vehicleProbeMeasurement"/>
+      <xs:enumeration value="videoProcessingMonitoringStation"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="SpecialDay">
+    <xs:sequence>
+      <xs:element name="intersectWithApplicableDays" type="com:Boolean" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="specialDayType" type="com:_SpecialDayTypeEnum" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="publicEvent" type="com:_PublicEventTypeEnum" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="namedArea" type="com:NamedArea" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="_specialDayExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="SpecialDayTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dayBeforePublicHoliday"/>
+      <xs:enumeration value="publicHoliday"/>
+      <xs:enumeration value="dayFollowingPublicHoliday"/>
+      <xs:enumeration value="longWeekendDay"/>
+      <xs:enumeration value="inLieuOfPublicHoliday"/>
+      <xs:enumeration value="schoolDay"/>
+      <xs:enumeration value="schoolHolidays"/>
+      <xs:enumeration value="publicEventDay"/>
+      <xs:enumeration value="other"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="SpeedValue">
+    <xs:complexContent>
+      <xs:extension base="com:DataValue">
         <xs:sequence>
-            <xs:element name="chemicalName"
-                        type="com:MultilingualString"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="dangerousGoodsFlashPoint"
-                        type="com:TemperatureCelsius"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="dangerousGoodsRegulations"
-                        type="com:_DangerousGoodsRegulationsEnum"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="hazardCodeIdentification"
-                        type="com:String"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="hazardCodeVersionNumber"
-                        type="com:NonNegativeInteger"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="hazardSubstanceItemPageNumber"
-                        type="com:String"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="tremCardNumber"
-                        type="com:String"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="undgNumber"
-                        type="com:String"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="volumeOfDangerousGoods"
-                        type="com:CubicMetres"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="weightOfDangerousGoods"
-                        type="com:Tonnes"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="_hazardousMaterialsExtension"
-                        type="com:_HazardousMaterialsExtensionType"
-                        minOccurs="0" />
+          <xs:element name="speed" type="com:KilometresPerHour" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_speedValueExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="HeaderInformation">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="String">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1024"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Temperature">
+    <xs:sequence>
+      <xs:element name="airTemperature" type="com:TemperatureValue" minOccurs="0"/>
+      <xs:element name="dewPointTemperature" type="com:TemperatureValue" minOccurs="0"/>
+      <xs:element name="maximumTemperature" type="com:TemperatureValue" minOccurs="0"/>
+      <xs:element name="minimumTemperature" type="com:TemperatureValue" minOccurs="0"/>
+      <xs:element name="_temperatureExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TemperatureBelowOrAboveRoadSurface">
+    <xs:sequence>
+      <xs:element name="heightBelowOrAboveRoadSurface" type="com:MetresAsFloat" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="temperatureBelowOrAboveRoadSurface" type="com:TemperatureValue"/>
+      <xs:element name="_temperatureBelowOrAboveRoadSurfaceExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="TemperatureCelsius">
+    <xs:restriction base="com:Float"/>
+  </xs:simpleType>
+  <xs:complexType name="TemperatureValue">
+    <xs:complexContent>
+      <xs:extension base="com:DataValue">
         <xs:sequence>
-            <xs:element name="confidentiality"
-                        type="com:_ConfidentialityValueEnum"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="allowedDeliveryChannel"
-                        type="com:_InformationDeliveryServicesEnum"
-                        minOccurs="0"
-                        maxOccurs="unbounded" />
-            <xs:element name="informationStatus"
-                        type="com:_InformationStatusEnum"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="_headerInformationExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
+          <xs:element name="temperature" type="com:TemperatureCelsius" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_temperatureValueExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="HeaviestAxleWeightCharacteristic">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="Time">
+    <xs:restriction base="xs:time"/>
+  </xs:simpleType>
+  <xs:complexType name="TimePeriodOfDay">
+    <xs:sequence>
+      <xs:element name="startTimeOfPeriod" type="com:Time" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="endTimeOfPeriod" type="com:Time" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="_timePeriodOfDayExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="TimePrecisionEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="tenthsOfSecond"/>
+      <xs:enumeration value="second"/>
+      <xs:enumeration value="minute"/>
+      <xs:enumeration value="quarterHour"/>
+      <xs:enumeration value="halfHour"/>
+      <xs:enumeration value="hour"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Tonnes">
+    <xs:restriction base="com:Float"/>
+  </xs:simpleType>
+  <xs:simpleType name="TrafficTrendTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="trafficBuildingUp"/>
+      <xs:enumeration value="trafficEasing"/>
+      <xs:enumeration value="trafficStable"/>
+      <xs:enumeration value="unknown"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Url">
+    <xs:restriction base="xs:anyURI"/>
+  </xs:simpleType>
+  <xs:complexType name="UrlLink">
+    <xs:sequence>
+      <xs:element name="urlLinkAddress" type="com:Url" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="urlLinkDescription" type="com:MultilingualString" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="urlLinkType" type="com:_UrlLinkTypeEnum" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="_urlLinkExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="UrlLinkTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="documentPdf"/>
+      <xs:enumeration value="html"/>
+      <xs:enumeration value="image"/>
+      <xs:enumeration value="rss"/>
+      <xs:enumeration value="videoStream"/>
+      <xs:enumeration value="voiceStream"/>
+      <xs:enumeration value="other"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Validity">
+    <xs:sequence>
+      <xs:element name="validityStatus" type="com:_ValidityStatusEnum" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="overrunning" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="validityTimeSpecification" type="com:OverallPeriod"/>
+      <xs:element name="_validityExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ValidityStatusEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="active"/>
+      <xs:enumeration value="planned"/>
+      <xs:enumeration value="suspended"/>
+      <xs:enumeration value="definedByValidityTimeSpec"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Vehicle">
+    <xs:sequence>
+      <xs:element name="anonymizedVehicleReference" type="com:String" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="vehicleColour" type="com:MultilingualString" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="vehicleCountryOfOrigin" type="com:CountryCode" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="vehicleIdentifier" type="com:String" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="vehicleManufacturer" type="com:String" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="vehicleModel" type="com:String" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="vehicleRegistrationPlateIdentifier" type="com:String" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="vehicleStatus" type="com:_VehicleStatusEnum" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="vehicleCharacteristics" type="com:VehicleCharacteristics" minOccurs="0"/>
+      <xs:element name="axleSpacingOnVehicle" type="com:AxleSpacing" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="specificAxleWeight" type="com:AxleWeight" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="hazardousGoodsAssociatedWithVehicle" type="com:HazardousMaterials" minOccurs="0"/>
+      <xs:element name="_vehicleExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VehicleCharacteristics">
+    <xs:sequence>
+      <xs:element name="fuelType" type="com:_FuelTypeEnum" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="loadType" type="com:_LoadTypeEnum" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="vehicleEquipment" type="com:_VehicleEquipmentEnum" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="vehicleType" type="com:_VehicleTypeEnum" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="vehicleUsage" type="com:_VehicleUsageEnum" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="yearOfFirstRegistration" type="com:Year" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="grossWeightCharacteristic" type="com:GrossWeightCharacteristic" minOccurs="0" maxOccurs="2"/>
+      <xs:element name="heightCharacteristic" type="com:HeightCharacteristic" minOccurs="0" maxOccurs="2"/>
+      <xs:element name="lengthCharacteristic" type="com:LengthCharacteristic" minOccurs="0" maxOccurs="2"/>
+      <xs:element name="widthCharacteristic" type="com:WidthCharacteristic" minOccurs="0" maxOccurs="2"/>
+      <xs:element name="heaviestAxleWeightCharacteristic" type="com:HeaviestAxleWeightCharacteristic" minOccurs="0" maxOccurs="2"/>
+      <xs:element name="numberOfAxlesCharacteristic" type="com:NumberOfAxlesCharacteristic" minOccurs="0" maxOccurs="2"/>
+      <xs:element name="emissions" type="com:Emissions" minOccurs="0"/>
+      <xs:element name="_vehicleCharacteristicsExtension" type="com:_VehicleCharacteristicsExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="VehicleEquipmentEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="notUsingSnowChains"/>
+      <xs:enumeration value="notUsingSnowChainsOrTyres"/>
+      <xs:enumeration value="snowChainsInUse"/>
+      <xs:enumeration value="snowTyresInUse"/>
+      <xs:enumeration value="snowChainsOrTyresInUse"/>
+      <xs:enumeration value="withoutSnowTyresOrChainsOnBoard"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="VehicleFlowValue">
+    <xs:complexContent>
+      <xs:extension base="com:DataValue">
         <xs:sequence>
-            <xs:element name="comparisonOperator"
-                        type="com:_ComparisonOperatorEnum"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="heaviestAxleWeight"
-                        type="com:Tonnes"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="_heaviestAxleWeightCharacteristicExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
+          <xs:element name="vehicleFlowRate" type="com:VehiclesPerHour" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_vehicleFlowValueExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="Hectopascal">
-        <xs:restriction base="com:Float" />
-    </xs:simpleType>
-    <xs:complexType name="HeightCharacteristic">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="VehiclesPerHour">
+    <xs:restriction base="com:NonNegativeInteger"/>
+  </xs:simpleType>
+  <xs:simpleType name="VehicleStatusEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="abandoned"/>
+      <xs:enumeration value="brokenDown"/>
+      <xs:enumeration value="burntOut"/>
+      <xs:enumeration value="damaged"/>
+      <xs:enumeration value="damagedAndImmobilized"/>
+      <xs:enumeration value="inDitch"/>
+      <xs:enumeration value="jacknifed"/>
+      <xs:enumeration value="offRoad"/>
+      <xs:enumeration value="onFire"/>
+      <xs:enumeration value="onTopOfCrashBarrier"/>
+      <xs:enumeration value="onWheels"/>
+      <xs:enumeration value="overturned"/>
+      <xs:enumeration value="rollable"/>
+      <xs:enumeration value="spunAround"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="VehicleTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="agriculturalVehicle"/>
+      <xs:enumeration value="anyVehicle"/>
+      <xs:enumeration value="articulatedBus"/>
+      <xs:enumeration value="articulatedTrolleyBus"/>
+      <xs:enumeration value="articulatedVehicle"/>
+      <xs:enumeration value="bicycle"/>
+      <xs:enumeration value="bus"/>
+      <xs:enumeration value="car"/>
+      <xs:enumeration value="caravan"/>
+      <xs:enumeration value="carOrLightVehicle"/>
+      <xs:enumeration value="carWithCaravan"/>
+      <xs:enumeration value="carWithTrailer"/>
+      <xs:enumeration value="constructionOrMaintenanceVehicle"/>
+      <xs:enumeration value="fourWheelDrive"/>
+      <xs:enumeration value="heavyGoodsVehicle"/>
+      <xs:enumeration value="heavyGoodsVehicleWithTrailer"/>
+      <xs:enumeration value="heavyDutyTransporter"/>
+      <xs:enumeration value="heavyVehicle"/>
+      <xs:enumeration value="highSidedVehicle"/>
+      <xs:enumeration value="lightCommercialVehicle"/>
+      <xs:enumeration value="largeCar"/>
+      <xs:enumeration value="largeGoodsVehicle"/>
+      <xs:enumeration value="lightCommercialVehicleWithTrailer"/>
+      <xs:enumeration value="longHeavyLorry"/>
+      <xs:enumeration value="lorry"/>
+      <xs:enumeration value="metro"/>
+      <xs:enumeration value="minibus"/>
+      <xs:enumeration value="moped"/>
+      <xs:enumeration value="motorcycle"/>
+      <xs:enumeration value="motorcycleWithSideCar"/>
+      <xs:enumeration value="motorhome"/>
+      <xs:enumeration value="motorscooter"/>
+      <xs:enumeration value="passengerCar"/>
+      <xs:enumeration value="smallCar"/>
+      <xs:enumeration value="tanker"/>
+      <xs:enumeration value="threeWheeledVehicle"/>
+      <xs:enumeration value="trailer"/>
+      <xs:enumeration value="tram"/>
+      <xs:enumeration value="trolleyBus"/>
+      <xs:enumeration value="twoWheeledVehicle"/>
+      <xs:enumeration value="van"/>
+      <xs:enumeration value="vehicleWithCaravan"/>
+      <xs:enumeration value="vehicleWithCatalyticConverter"/>
+      <xs:enumeration value="vehicleWithoutCatalyticConverter"/>
+      <xs:enumeration value="vehicleWithTrailer"/>
+      <xs:enumeration value="withEvenNumberedRegistrationPlates"/>
+      <xs:enumeration value="withOddNumberedRegistrationPlates"/>
+      <xs:enumeration value="unknown"/>
+      <xs:enumeration value="other"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="VehicleUsageEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="agricultural"/>
+      <xs:enumeration value="carSharing"/>
+      <xs:enumeration value="cityLogistics"/>
+      <xs:enumeration value="commercial"/>
+      <xs:enumeration value="emergencyServices"/>
+      <xs:enumeration value="military"/>
+      <xs:enumeration value="nonCommercial"/>
+      <xs:enumeration value="patrol"/>
+      <xs:enumeration value="recoveryServices"/>
+      <xs:enumeration value="roadMaintenanceOrConstruction"/>
+      <xs:enumeration value="roadOperator"/>
+      <xs:enumeration value="taxi"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="VersionedReference">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="version" type="xs:string" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="Visibility">
+    <xs:sequence>
+      <xs:element name="minimumVisibilityDistance" type="com:IntegerMetreDistanceValue"/>
+      <xs:element name="_visibilityExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="WeatherRelatedRoadConditionTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="blackIce"/>
+      <xs:enumeration value="deepSnow"/>
+      <xs:enumeration value="dry"/>
+      <xs:enumeration value="freezingOfWetRoads"/>
+      <xs:enumeration value="freezingPavements"/>
+      <xs:enumeration value="freezingRain"/>
+      <xs:enumeration value="freshSnow"/>
+      <xs:enumeration value="glaze"/>
+      <xs:enumeration value="ice"/>
+      <xs:enumeration value="iceBuildUp"/>
+      <xs:enumeration value="iceWithWheelBarTracks"/>
+      <xs:enumeration value="icyPatches"/>
+      <xs:enumeration value="looseSnow"/>
+      <xs:enumeration value="moist"/>
+      <xs:enumeration value="normalWinterConditionsForPedestrians"/>
+      <xs:enumeration value="notDry"/>
+      <xs:enumeration value="packedSnow"/>
+      <xs:enumeration value="rime"/>
+      <xs:enumeration value="roadSurfaceMelting"/>
+      <xs:enumeration value="slippery"/>
+      <xs:enumeration value="slushOnRoad"/>
+      <xs:enumeration value="slushStrings"/>
+      <xs:enumeration value="snow"/>
+      <xs:enumeration value="snowDrifts"/>
+      <xs:enumeration value="snowOnPavement"/>
+      <xs:enumeration value="wetAndIcyRoad"/>
+      <xs:enumeration value="snowOnTheRoad"/>
+      <xs:enumeration value="wetIcyPavement"/>
+      <xs:enumeration value="streamingWater"/>
+      <xs:enumeration value="surfaceWater"/>
+      <xs:enumeration value="wet"/>
+      <xs:enumeration value="other"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="WeightTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="actual"/>
+      <xs:enumeration value="maximumPermitted"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="WidthCharacteristic">
+    <xs:sequence>
+      <xs:element name="comparisonOperator" type="com:_ComparisonOperatorEnum" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="vehicleWidth" type="com:MetresAsFloat" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="_widthCharacteristicExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Wind">
+    <xs:sequence>
+      <xs:element name="windMeasurementHeight" type="com:MetresAsNonNegativeInteger" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="windSpeed" type="com:WindSpeedValue" minOccurs="0"/>
+      <xs:element name="maximumWindSpeed" type="com:WindSpeedValue" minOccurs="0"/>
+      <xs:element name="windDirectionBearing" type="com:DirectionBearingValue" minOccurs="0"/>
+      <xs:element name="maximumWindDirectionBearing" type="com:DirectionBearingValue" minOccurs="0"/>
+      <xs:element name="windDirectionCompass" type="com:DirectionCompassValue" minOccurs="0"/>
+      <xs:element name="maximumWindDirectionCompass" type="com:DirectionCompassValue" minOccurs="0"/>
+      <xs:element name="_windExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WindSpeedValue">
+    <xs:complexContent>
+      <xs:extension base="com:DataValue">
         <xs:sequence>
-            <xs:element name="comparisonOperator"
-                        type="com:_ComparisonOperatorEnum"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="vehicleHeight"
-                        type="com:MetresAsFloat"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="_heightCharacteristicExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
+          <xs:element name="windSpeed" type="com:MetresPerSecond" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_windSpeedValueExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="Humidity">
-        <xs:sequence>
-            <xs:element name="relativeHumidity"
-                        type="com:PercentageValue" />
-            <xs:element name="_humidityExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="InformationDeliveryServicesEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="anyGeneralDeliveryService" />
-            <xs:enumeration value="safetyServices" />
-            <xs:enumeration value="vms" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="InformationStatusEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="real" />
-            <xs:enumeration value="securityExercise" />
-            <xs:enumeration value="technicalExercise" />
-            <xs:enumeration value="test" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="InstanceOfDayEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="firstInstance" />
-            <xs:enumeration value="secondInstance" />
-            <xs:enumeration value="thirdInstance" />
-            <xs:enumeration value="fourthInstance" />
-            <xs:enumeration value="fifthInstance" />
-            <xs:enumeration value="lastInstance" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="InstanceOfDayWithinMonth">
-        <xs:complexContent>
-            <xs:extension base="com:DayWeekMonth">
-                <xs:sequence>
-                    <xs:element name="applicableInstanceOfDayWithinMonth"
-                                type="com:_InstanceOfDayEnum"
-                                minOccurs="1"
-                                maxOccurs="5" />
-                    <xs:element name="_instanceOfDayWithinMonthExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="Integer">
-        <xs:restriction base="xs:integer" />
-    </xs:simpleType>
-    <xs:complexType name="IntegerMetreDistanceValue">
-        <xs:complexContent>
-            <xs:extension base="com:DataValue">
-                <xs:sequence>
-                    <xs:element name="integerMetreDistance"
-                                type="com:MetresAsNonNegativeInteger"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_integerMetreDistanceValueExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="IntensityKilogramsPerSquareMetre">
-        <xs:restriction base="com:Float" />
-    </xs:simpleType>
-    <xs:simpleType name="IntensityMillimetresPerHour">
-        <xs:restriction base="com:Float" />
-    </xs:simpleType>
-    <xs:complexType name="InternationalIdentifier">
-        <xs:sequence>
-            <xs:element name="country"
-                        type="com:CountryCode"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="nationalIdentifier"
-                        type="com:String"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="_internationalIdentifierExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="KilogramsConcentrationValue">
-        <xs:complexContent>
-            <xs:extension base="com:DataValue">
-                <xs:sequence>
-                    <xs:element name="kilogramsConcentration"
-                                type="com:ConcentrationKilogramsPerCubicMetre"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_kilogramsConcentrationValueExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="KilometresPerHour">
-        <xs:restriction base="com:Float" />
-    </xs:simpleType>
-    <xs:simpleType name="Language">
-        <xs:restriction base="xs:language" />
-    </xs:simpleType>
-    <xs:complexType name="LengthCharacteristic">
-        <xs:sequence>
-            <xs:element name="comparisonOperator"
-                        type="com:_ComparisonOperatorEnum"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="vehicleLength"
-                        type="com:MetresAsFloat"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="_lengthCharacteristicExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="LoadTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="abnormalLoad" />
-            <xs:enumeration value="ammunition" />
-            <xs:enumeration value="chemicals" />
-            <xs:enumeration value="combustibleMaterials" />
-            <xs:enumeration value="corrosiveMaterials" />
-            <xs:enumeration value="debris" />
-            <xs:enumeration value="empty" />
-            <xs:enumeration value="explosiveMaterials" />
-            <xs:enumeration value="extraHighLoad" />
-            <xs:enumeration value="extraLongLoad" />
-            <xs:enumeration value="extraWideLoad" />
-            <xs:enumeration value="fuel" />
-            <xs:enumeration value="glass" />
-            <xs:enumeration value="goods" />
-            <xs:enumeration value="hazardousMaterials" />
-            <xs:enumeration value="liquid" />
-            <xs:enumeration value="livestock" />
-            <xs:enumeration value="materials" />
-            <xs:enumeration value="materialsDangerousForPeople" />
-            <xs:enumeration value="materialsDangerousForTheEnvironment" />
-            <xs:enumeration value="materialsDangerousForWater" />
-            <xs:enumeration value="oil" />
-            <xs:enumeration value="ordinary" />
-            <xs:enumeration value="perishableProducts" />
-            <xs:enumeration value="petrol" />
-            <xs:enumeration value="pharmaceuticalMaterials" />
-            <xs:enumeration value="radioactiveMaterials" />
-            <xs:enumeration value="refrigeratedGoods" />
-            <xs:enumeration value="refuse" />
-            <xs:enumeration value="toxicMaterials" />
-            <xs:enumeration value="vehicles" />
-            <xs:enumeration value="other" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="LongString">
-        <xs:restriction base="xs:string" />
-    </xs:simpleType>
-    <xs:simpleType name="LowEmissionLevelEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="lowLevelEmission" />
-            <xs:enumeration value="freeOfEmission" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="MetresAsFloat">
-        <xs:restriction base="com:Float" />
-    </xs:simpleType>
-    <xs:simpleType name="MetresAsNonNegativeInteger">
-        <xs:restriction base="com:NonNegativeInteger" />
-    </xs:simpleType>
-    <xs:simpleType name="MetresPerSecond">
-        <xs:restriction base="com:Float" />
-    </xs:simpleType>
-    <xs:complexType name="MicrogramsConcentrationValue">
-        <xs:complexContent>
-            <xs:extension base="com:DataValue">
-                <xs:sequence>
-                    <xs:element name="microgramsConcentration"
-                                type="com:ConcentrationMicrogramsPerCubicMetre"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_microgramsConcentrationValueExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="MonthOfYearEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="january" />
-            <xs:enumeration value="february" />
-            <xs:enumeration value="march" />
-            <xs:enumeration value="april" />
-            <xs:enumeration value="may" />
-            <xs:enumeration value="june" />
-            <xs:enumeration value="july" />
-            <xs:enumeration value="august" />
-            <xs:enumeration value="september" />
-            <xs:enumeration value="october" />
-            <xs:enumeration value="november" />
-            <xs:enumeration value="december" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="MultilingualString">
-        <xs:sequence>
-            <xs:element name="values">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="value"
-                                    type="com:MultilingualStringValue"
-                                    maxOccurs="unbounded" />
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="MultilingualStringValue">
-        <xs:simpleContent>
-            <xs:extension base="com:MultilingualStringValueType">
-                <xs:attribute name="lang"
-                              type="xs:language" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:simpleType name="MultilingualStringValueType">
-        <xs:restriction base="xs:string">
-            <xs:maxLength value="1024" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="NamedArea"
-                    abstract="true">
-        <xs:sequence>
-            <xs:element name="_namedAreaExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="NonNegativeInteger">
-        <xs:restriction base="xs:nonNegativeInteger" />
-    </xs:simpleType>
-    <xs:complexType name="NumberOfAxlesCharacteristic">
-        <xs:sequence>
-            <xs:element name="comparisonOperator"
-                        type="com:_ComparisonOperatorEnum"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="numberOfAxles"
-                        type="com:NonNegativeInteger"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="_numberOfAxlesCharacteristicExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="OverallPeriod">
-        <xs:sequence>
-            <xs:element name="overallStartTime"
-                        type="com:DateTime"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="overallEndTime"
-                        type="com:DateTime"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="validPeriod"
-                        type="com:Period"
-                        minOccurs="0"
-                        maxOccurs="unbounded" />
-            <xs:element name="exceptionPeriod"
-                        type="com:Period"
-                        minOccurs="0"
-                        maxOccurs="unbounded" />
-            <xs:element name="_overallPeriodExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="PayloadPublication"
-                    abstract="true">
-        <xs:sequence>
-            <xs:element name="feedDescription"
-                        type="com:MultilingualString"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="feedType"
-                        type="com:String"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="publicationTime"
-                        type="com:DateTime"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="publicationCreator"
-                        type="com:InternationalIdentifier" />
-            <xs:element name="_payloadPublicationExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-        <xs:attribute name="lang"
-                      type="com:Language"
-                      use="required" />
-        <xs:attribute name="modelBaseVersion"
-                      type="xs:string"
-                      use="required"
-                      fixed="3" />
-        <xs:attribute name="extensionName"
-                      type="xs:string"
-                      use="optional" />
-        <xs:attribute name="extensionVersion"
-                      type="xs:string"
-                      use="optional" />
-        <xs:attribute name="profileName"
-                      type="xs:string"
-                      use="optional" />
-        <xs:attribute name="profileVersion"
-                      type="xs:string"
-                      use="optional" />
-    </xs:complexType>
-    <xs:simpleType name="Percentage">
-        <xs:restriction base="com:Float" />
-    </xs:simpleType>
-    <xs:complexType name="PercentageValue">
-        <xs:complexContent>
-            <xs:extension base="com:DataValue">
-                <xs:sequence>
-                    <xs:element name="percentage"
-                                type="com:Percentage"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_percentageValueExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="Period">
-        <xs:sequence>
-            <xs:element name="startOfPeriod"
-                        type="com:DateTime"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="endOfPeriod"
-                        type="com:DateTime"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="periodName"
-                        type="com:MultilingualString"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="recurringTimePeriodOfDay"
-                        type="com:TimePeriodOfDay"
-                        minOccurs="0"
-                        maxOccurs="unbounded" />
-            <xs:element name="recurringDayWeekMonthPeriod"
-                        type="com:DayWeekMonth"
-                        minOccurs="0"
-                        maxOccurs="unbounded" />
-            <xs:element name="recurringSpecialDay"
-                        type="com:SpecialDay"
-                        minOccurs="0"
-                        maxOccurs="unbounded" />
-            <xs:element name="_periodExtension"
-                        type="com:_PeriodExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="PollutantTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="benzeneTolueneXylene" />
-            <xs:enumeration value="carbonMonoxide" />
-            <xs:enumeration value="lead" />
-            <xs:enumeration value="methane" />
-            <xs:enumeration value="nitricOxide" />
-            <xs:enumeration value="nitrogenDioxide" />
-            <xs:enumeration value="nitrogenMonoxide" />
-            <xs:enumeration value="nitrogenOxides" />
-            <xs:enumeration value="nonMethaneHydrocarbons" />
-            <xs:enumeration value="ozone" />
-            <xs:enumeration value="particulates10" />
-            <xs:enumeration value="polycyclicAromaticHydrocarbons" />
-            <xs:enumeration value="primaryParticulate" />
-            <xs:enumeration value="sulphurDioxide" />
-            <xs:enumeration value="totalHydrocarbons" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="Pollution">
-        <xs:sequence>
-            <xs:element name="pollutantType"
-                        type="com:_PollutantTypeEnum"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="pollutantConcentration"
-                        type="com:MicrogramsConcentrationValue"
-                        minOccurs="0" />
-            <xs:element name="_pollutionExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="PrecipitationDetail">
-        <xs:sequence>
-            <xs:element name="precipitationType"
-                        type="com:_PrecipitationTypeEnum"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="precipitationIntensityGrade"
-                        type="com:_PrecipitationIntensityEnum"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="precipitationIntensity"
-                        type="com:PrecipitationIntensityValue"
-                        minOccurs="0" />
-            <xs:element name="depositionDepth"
-                        type="com:FloatingPointMetreDistanceValue"
-                        minOccurs="0" />
-            <xs:element name="_precipitationDetailExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="PrecipitationIntensityEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="noPhenomena" />
-            <xs:enumeration value="light" />
-            <xs:enumeration value="moderate" />
-            <xs:enumeration value="heavy" />
-            <xs:enumeration value="violent" />
-            <xs:enumeration value="severe" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="PrecipitationIntensityValue">
-        <xs:complexContent>
-            <xs:extension base="com:DataValue">
-                <xs:sequence>
-                    <xs:element name="millimetresPerHourIntensity"
-                                type="com:IntensityMillimetresPerHour"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_precipitationIntensityValueExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="PrecipitationTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="clearIce" />
-            <xs:enumeration value="dew" />
-            <xs:enumeration value="diamondDust" />
-            <xs:enumeration value="drizzle" />
-            <xs:enumeration value="freezingRain" />
-            <xs:enumeration value="glaze" />
-            <xs:enumeration value="hail" />
-            <xs:enumeration value="hardRime" />
-            <xs:enumeration value="hoarFrost" />
-            <xs:enumeration value="iceCrystals" />
-            <xs:enumeration value="icePellets" />
-            <xs:enumeration value="liquidFreezing" />
-            <xs:enumeration value="liquidNotFreezing" />
-            <xs:enumeration value="noPrecipitation" />
-            <xs:enumeration value="rain" />
-            <xs:enumeration value="rime" />
-            <xs:enumeration value="sleet" />
-            <xs:enumeration value="smallHail" />
-            <xs:enumeration value="snow" />
-            <xs:enumeration value="snowGrains" />
-            <xs:enumeration value="snowPellets" />
-            <xs:enumeration value="softRime" />
-            <xs:enumeration value="solid" />
-            <xs:enumeration value="wetSnow" />
-            <xs:enumeration value="whiteDev" />
-            <xs:enumeration value="unknown" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="Pressure">
-        <xs:sequence>
-            <xs:element name="pressureValue"
-                        type="com:PressureValue" />
-            <xs:element name="_pressureExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="PressureValue">
-        <xs:complexContent>
-            <xs:extension base="com:DataValue">
-                <xs:sequence>
-                    <xs:element name="pressure"
-                                type="com:Hectopascal"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_pressureValueExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="PublicEventTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="agriculturalShow" />
-            <xs:enumeration value="airShow" />
-            <xs:enumeration value="artEvent" />
-            <xs:enumeration value="athleticsMeeting" />
-            <xs:enumeration value="commercialEvent" />
-            <xs:enumeration value="culturalEvent" />
-            <xs:enumeration value="ballGame" />
-            <xs:enumeration value="baseballGame" />
-            <xs:enumeration value="basketballGame" />
-            <xs:enumeration value="beerFestival" />
-            <xs:enumeration value="bicycleRace" />
-            <xs:enumeration value="boatRace" />
-            <xs:enumeration value="boatShow" />
-            <xs:enumeration value="boxingTournament" />
-            <xs:enumeration value="bullFight" />
-            <xs:enumeration value="ceremonialEvent" />
-            <xs:enumeration value="concert" />
-            <xs:enumeration value="cricketMatch" />
-            <xs:enumeration value="exhibition" />
-            <xs:enumeration value="fair" />
-            <xs:enumeration value="festival" />
-            <xs:enumeration value="filmFestival" />
-            <xs:enumeration value="filmTVMaking" />
-            <xs:enumeration value="fireworkDisplay" />
-            <xs:enumeration value="flowerEvent" />
-            <xs:enumeration value="foodFestival" />
-            <xs:enumeration value="footballMatch" />
-            <xs:enumeration value="funfair" />
-            <xs:enumeration value="gardeningOrFlowerShow" />
-            <xs:enumeration value="golfTournament" />
-            <xs:enumeration value="hockeyGame" />
-            <xs:enumeration value="horseRaceMeeting" />
-            <xs:enumeration value="internationalSportsMeeting" />
-            <xs:enumeration value="majorEvent" />
-            <xs:enumeration value="marathon" />
-            <xs:enumeration value="market" />
-            <xs:enumeration value="match" />
-            <xs:enumeration value="motorShow" />
-            <xs:enumeration value="motorSportRaceMeeting" />
-            <xs:enumeration value="openAirConcert" />
-            <xs:enumeration value="parade" />
-            <xs:enumeration value="procession" />
-            <xs:enumeration value="raceMeeting" />
-            <xs:enumeration value="rugbyMatch" />
-            <xs:enumeration value="severalMajorEvents" />
-            <xs:enumeration value="show" />
-            <xs:enumeration value="showJumping" />
-            <xs:enumeration value="soundAndLightShow" />
-            <xs:enumeration value="sportsMeeting" />
-            <xs:enumeration value="stateOccasion" />
-            <xs:enumeration value="streetFestival" />
-            <xs:enumeration value="tennisTournament" />
-            <xs:enumeration value="theatricalEvent" />
-            <xs:enumeration value="tournament" />
-            <xs:enumeration value="tradeFair" />
-            <xs:enumeration value="waterSportsMeeting" />
-            <xs:enumeration value="wineFestival" />
-            <xs:enumeration value="winterSportsMeeting" />
-            <xs:enumeration value="unknown" />
-            <xs:enumeration value="other" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="PublicHoliday">
-        <xs:complexContent>
-            <xs:extension base="com:SpecialDay">
-                <xs:sequence>
-                    <xs:element name="publicHolidayName"
-                                type="com:MultilingualString"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_publicHolidayExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="Reference">
-        <xs:attribute name="id"
-                      type="xs:string"
-                      use="required" />
-    </xs:complexType>
-    <xs:complexType name="RoadSurfaceConditionMeasurements">
-        <xs:sequence>
-            <xs:element name="temperatureBelowOrAboveRoadSurface"
-                        type="com:TemperatureBelowOrAboveRoadSurface"
-                        minOccurs="0"
-                        maxOccurs="unbounded" />
-            <xs:element name="roadSurfaceTemperature"
-                        type="com:TemperatureValue"
-                        minOccurs="0" />
-            <xs:element name="protectionTemperature"
-                        type="com:TemperatureValue"
-                        minOccurs="0" />
-            <xs:element name="deIcingApplicationRate"
-                        type="com:ApplicationRateValue"
-                        minOccurs="0" />
-            <xs:element name="deIcingConcentration"
-                        type="com:KilogramsConcentrationValue"
-                        minOccurs="0" />
-            <xs:element name="friction"
-                        type="com:FrictionValue"
-                        minOccurs="0" />
-            <xs:element name="depthOfSnow"
-                        type="com:FloatingPointMetreDistanceValue"
-                        minOccurs="0" />
-            <xs:element name="waterFilmThickness"
-                        type="com:FloatingPointMetreDistanceValue"
-                        minOccurs="0" />
-            <xs:element name="iceLayerThickness"
-                        type="com:FloatingPointMetreDistanceValue"
-                        minOccurs="0" />
-            <xs:element name="icePercentage"
-                        type="com:PercentageValue"
-                        minOccurs="0" />
-            <xs:element name="_roadSurfaceConditionMeasurementsExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="Seconds">
-        <xs:restriction base="com:Float" />
-    </xs:simpleType>
-    <xs:complexType name="Source">
-        <xs:sequence>
-            <xs:element name="sourceCountry"
-                        type="com:CountryCode"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="sourceIdentification"
-                        type="com:String"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="sourceName"
-                        type="com:MultilingualString"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="sourceType"
-                        type="com:_SourceTypeEnum"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="reliable"
-                        type="com:Boolean"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="_sourceExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="SourceTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="automobileClubPatrol" />
-            <xs:enumeration value="cameraObservation" />
-            <xs:enumeration value="freightVehicleOperator" />
-            <xs:enumeration value="inductionLoopMonitoringStation" />
-            <xs:enumeration value="infraredMonitoringStation" />
-            <xs:enumeration value="microwaveMonitoringStation" />
-            <xs:enumeration value="mobileTelephoneCaller" />
-            <xs:enumeration value="nonPoliceEmergencyServicePatrol" />
-            <xs:enumeration value="otherInformation" />
-            <xs:enumeration value="otherOfficialVehicle" />
-            <xs:enumeration value="policePatrol" />
-            <xs:enumeration value="privateBreakdownService" />
-            <xs:enumeration value="publicAndPrivateUtilities" />
-            <xs:enumeration value="registeredMotoristObserver" />
-            <xs:enumeration value="roadAuthorities" />
-            <xs:enumeration value="roadOperatorPatrol" />
-            <xs:enumeration value="roadsideTelephoneCaller" />
-            <xs:enumeration value="spotterAircraft" />
-            <xs:enumeration value="trafficMonitoringStation" />
-            <xs:enumeration value="transitOperator" />
-            <xs:enumeration value="vehicleProbeMeasurement" />
-            <xs:enumeration value="videoProcessingMonitoringStation" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="SpecialDay">
-        <xs:sequence>
-            <xs:element name="intersectWithApplicableDays"
-                        type="com:Boolean"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="specialDayType"
-                        type="com:_SpecialDayTypeEnum"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="publicEvent"
-                        type="com:_PublicEventTypeEnum"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="namedArea"
-                        type="com:NamedArea"
-                        minOccurs="0"
-                        maxOccurs="unbounded" />
-            <xs:element name="_specialDayExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="SpecialDayTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="dayBeforePublicHoliday" />
-            <xs:enumeration value="publicHoliday" />
-            <xs:enumeration value="dayFollowingPublicHoliday" />
-            <xs:enumeration value="longWeekendDay" />
-            <xs:enumeration value="inLieuOfPublicHoliday" />
-            <xs:enumeration value="schoolDay" />
-            <xs:enumeration value="schoolHolidays" />
-            <xs:enumeration value="publicEventDay" />
-            <xs:enumeration value="other" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="SpeedValue">
-        <xs:complexContent>
-            <xs:extension base="com:DataValue">
-                <xs:sequence>
-                    <xs:element name="speed"
-                                type="com:KilometresPerHour"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_speedValueExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="String">
-        <xs:restriction base="xs:string">
-            <xs:maxLength value="1024" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="Temperature">
-        <xs:sequence>
-            <xs:element name="airTemperature"
-                        type="com:TemperatureValue"
-                        minOccurs="0" />
-            <xs:element name="dewPointTemperature"
-                        type="com:TemperatureValue"
-                        minOccurs="0" />
-            <xs:element name="maximumTemperature"
-                        type="com:TemperatureValue"
-                        minOccurs="0" />
-            <xs:element name="minimumTemperature"
-                        type="com:TemperatureValue"
-                        minOccurs="0" />
-            <xs:element name="_temperatureExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="TemperatureBelowOrAboveRoadSurface">
-        <xs:sequence>
-            <xs:element name="heightBelowOrAboveRoadSurface"
-                        type="com:MetresAsFloat"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="temperatureBelowOrAboveRoadSurface"
-                        type="com:TemperatureValue" />
-            <xs:element name="_temperatureBelowOrAboveRoadSurfaceExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="TemperatureCelsius">
-        <xs:restriction base="com:Float" />
-    </xs:simpleType>
-    <xs:complexType name="TemperatureValue">
-        <xs:complexContent>
-            <xs:extension base="com:DataValue">
-                <xs:sequence>
-                    <xs:element name="temperature"
-                                type="com:TemperatureCelsius"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_temperatureValueExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="Time">
-        <xs:restriction base="xs:time" />
-    </xs:simpleType>
-    <xs:complexType name="TimePeriodOfDay">
-        <xs:sequence>
-            <xs:element name="startTimeOfPeriod"
-                        type="com:Time"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="endTimeOfPeriod"
-                        type="com:Time"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="_timePeriodOfDayExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="TimePrecisionEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="tenthsOfSecond" />
-            <xs:enumeration value="second" />
-            <xs:enumeration value="minute" />
-            <xs:enumeration value="quarterHour" />
-            <xs:enumeration value="halfHour" />
-            <xs:enumeration value="hour" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="Tonnes">
-        <xs:restriction base="com:Float" />
-    </xs:simpleType>
-    <xs:simpleType name="TrafficTrendTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="trafficBuildingUp" />
-            <xs:enumeration value="trafficEasing" />
-            <xs:enumeration value="trafficStable" />
-            <xs:enumeration value="unknown" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="Url">
-        <xs:restriction base="xs:anyURI" />
-    </xs:simpleType>
-    <xs:complexType name="UrlLink">
-        <xs:sequence>
-            <xs:element name="urlLinkAddress"
-                        type="com:Url"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="urlLinkDescription"
-                        type="com:MultilingualString"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="urlLinkType"
-                        type="com:_UrlLinkTypeEnum"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="_urlLinkExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="UrlLinkTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="documentPdf" />
-            <xs:enumeration value="html" />
-            <xs:enumeration value="image" />
-            <xs:enumeration value="rss" />
-            <xs:enumeration value="videoStream" />
-            <xs:enumeration value="voiceStream" />
-            <xs:enumeration value="other" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="Validity">
-        <xs:sequence>
-            <xs:element name="validityStatus"
-                        type="com:_ValidityStatusEnum"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="overrunning"
-                        type="com:Boolean"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="validityTimeSpecification"
-                        type="com:OverallPeriod" />
-            <xs:element name="_validityExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="ValidityStatusEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="active" />
-            <xs:enumeration value="planned" />
-            <xs:enumeration value="suspended" />
-            <xs:enumeration value="definedByValidityTimeSpec" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="Vehicle">
-        <xs:sequence>
-            <xs:element name="anonymizedVehicleReference"
-                        type="com:String"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="vehicleColour"
-                        type="com:MultilingualString"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="vehicleCountryOfOrigin"
-                        type="com:CountryCode"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="vehicleIdentifier"
-                        type="com:String"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="vehicleManufacturer"
-                        type="com:String"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="vehicleModel"
-                        type="com:String"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="vehicleRegistrationPlateIdentifier"
-                        type="com:String"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="vehicleStatus"
-                        type="com:_VehicleStatusEnum"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="vehicleCharacteristics"
-                        type="com:VehicleCharacteristics"
-                        minOccurs="0" />
-            <xs:element name="axleSpacingOnVehicle"
-                        type="com:AxleSpacing"
-                        minOccurs="0"
-                        maxOccurs="unbounded" />
-            <xs:element name="specificAxleWeight"
-                        type="com:AxleWeight"
-                        minOccurs="0"
-                        maxOccurs="unbounded" />
-            <xs:element name="hazardousGoodsAssociatedWithVehicle"
-                        type="com:HazardousMaterials"
-                        minOccurs="0" />
-            <xs:element name="_vehicleExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="VehicleCharacteristics">
-        <xs:sequence>
-            <xs:element name="fuelType"
-                        type="com:_FuelTypeEnum"
-                        minOccurs="0"
-                        maxOccurs="unbounded" />
-            <xs:element name="loadType"
-                        type="com:_LoadTypeEnum"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="vehicleEquipment"
-                        type="com:_VehicleEquipmentEnum"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="vehicleType"
-                        type="com:_VehicleTypeEnum"
-                        minOccurs="0"
-                        maxOccurs="unbounded" />
-            <xs:element name="vehicleUsage"
-                        type="com:_VehicleUsageEnum"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="yearOfFirstRegistration"
-                        type="com:Year"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="grossWeightCharacteristic"
-                        type="com:GrossWeightCharacteristic"
-                        minOccurs="0"
-                        maxOccurs="2" />
-            <xs:element name="heightCharacteristic"
-                        type="com:HeightCharacteristic"
-                        minOccurs="0"
-                        maxOccurs="2" />
-            <xs:element name="lengthCharacteristic"
-                        type="com:LengthCharacteristic"
-                        minOccurs="0"
-                        maxOccurs="2" />
-            <xs:element name="widthCharacteristic"
-                        type="com:WidthCharacteristic"
-                        minOccurs="0"
-                        maxOccurs="2" />
-            <xs:element name="heaviestAxleWeightCharacteristic"
-                        type="com:HeaviestAxleWeightCharacteristic"
-                        minOccurs="0"
-                        maxOccurs="2" />
-            <xs:element name="numberOfAxlesCharacteristic"
-                        type="com:NumberOfAxlesCharacteristic"
-                        minOccurs="0"
-                        maxOccurs="2" />
-            <xs:element name="emissions"
-                        type="com:Emissions"
-                        minOccurs="0" />
-            <xs:element name="_vehicleCharacteristicsExtension"
-                        type="com:_VehicleCharacteristicsExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="VehicleEquipmentEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="notUsingSnowChains" />
-            <xs:enumeration value="notUsingSnowChainsOrTyres" />
-            <xs:enumeration value="snowChainsInUse" />
-            <xs:enumeration value="snowTyresInUse" />
-            <xs:enumeration value="snowChainsOrTyresInUse" />
-            <xs:enumeration value="withoutSnowTyresOrChainsOnBoard" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="VehicleFlowValue">
-        <xs:complexContent>
-            <xs:extension base="com:DataValue">
-                <xs:sequence>
-                    <xs:element name="vehicleFlowRate"
-                                type="com:VehiclesPerHour"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_vehicleFlowValueExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="VehiclesPerHour">
-        <xs:restriction base="com:NonNegativeInteger" />
-    </xs:simpleType>
-    <xs:simpleType name="VehicleStatusEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="abandoned" />
-            <xs:enumeration value="brokenDown" />
-            <xs:enumeration value="burntOut" />
-            <xs:enumeration value="damaged" />
-            <xs:enumeration value="damagedAndImmobilized" />
-            <xs:enumeration value="inDitch" />
-            <xs:enumeration value="jacknifed" />
-            <xs:enumeration value="offRoad" />
-            <xs:enumeration value="onFire" />
-            <xs:enumeration value="onTopOfCrashBarrier" />
-            <xs:enumeration value="onWheels" />
-            <xs:enumeration value="overturned" />
-            <xs:enumeration value="rollable" />
-            <xs:enumeration value="spunAround" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="VehicleTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="agriculturalVehicle" />
-            <xs:enumeration value="anyVehicle" />
-            <xs:enumeration value="articulatedBus" />
-            <xs:enumeration value="articulatedTrolleyBus" />
-            <xs:enumeration value="articulatedVehicle" />
-            <xs:enumeration value="bicycle" />
-            <xs:enumeration value="bus" />
-            <xs:enumeration value="car" />
-            <xs:enumeration value="caravan" />
-            <xs:enumeration value="carOrLightVehicle" />
-            <xs:enumeration value="carWithCaravan" />
-            <xs:enumeration value="carWithTrailer" />
-            <xs:enumeration value="constructionOrMaintenanceVehicle" />
-            <xs:enumeration value="fourWheelDrive" />
-            <xs:enumeration value="heavyGoodsVehicle" />
-            <xs:enumeration value="heavyGoodsVehicleWithTrailer" />
-            <xs:enumeration value="heavyDutyTransporter" />
-            <xs:enumeration value="heavyVehicle" />
-            <xs:enumeration value="highSidedVehicle" />
-            <xs:enumeration value="lightCommercialVehicle" />
-            <xs:enumeration value="largeCar" />
-            <xs:enumeration value="largeGoodsVehicle" />
-            <xs:enumeration value="lightCommercialVehicleWithTrailer" />
-            <xs:enumeration value="longHeavyLorry" />
-            <xs:enumeration value="lorry" />
-            <xs:enumeration value="metro" />
-            <xs:enumeration value="minibus" />
-            <xs:enumeration value="moped" />
-            <xs:enumeration value="motorcycle" />
-            <xs:enumeration value="motorcycleWithSideCar" />
-            <xs:enumeration value="motorhome" />
-            <xs:enumeration value="motorscooter" />
-            <xs:enumeration value="passengerCar" />
-            <xs:enumeration value="smallCar" />
-            <xs:enumeration value="tanker" />
-            <xs:enumeration value="threeWheeledVehicle" />
-            <xs:enumeration value="trailer" />
-            <xs:enumeration value="tram" />
-            <xs:enumeration value="trolleyBus" />
-            <xs:enumeration value="twoWheeledVehicle" />
-            <xs:enumeration value="van" />
-            <xs:enumeration value="vehicleWithCaravan" />
-            <xs:enumeration value="vehicleWithCatalyticConverter" />
-            <xs:enumeration value="vehicleWithoutCatalyticConverter" />
-            <xs:enumeration value="vehicleWithTrailer" />
-            <xs:enumeration value="withEvenNumberedRegistrationPlates" />
-            <xs:enumeration value="withOddNumberedRegistrationPlates" />
-            <xs:enumeration value="unknown" />
-            <xs:enumeration value="other" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="VehicleUsageEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="agricultural" />
-            <xs:enumeration value="carSharing" />
-            <xs:enumeration value="cityLogistics" />
-            <xs:enumeration value="commercial" />
-            <xs:enumeration value="emergencyServices" />
-            <xs:enumeration value="military" />
-            <xs:enumeration value="nonCommercial" />
-            <xs:enumeration value="patrol" />
-            <xs:enumeration value="recoveryServices" />
-            <xs:enumeration value="roadMaintenanceOrConstruction" />
-            <xs:enumeration value="roadOperator" />
-            <xs:enumeration value="taxi" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="VersionedReference">
-        <xs:attribute name="id"
-                      type="xs:string"
-                      use="required" />
-        <xs:attribute name="version"
-                      type="xs:string"
-                      use="optional" />
-    </xs:complexType>
-    <xs:complexType name="Visibility">
-        <xs:sequence>
-            <xs:element name="minimumVisibilityDistance"
-                        type="com:IntegerMetreDistanceValue" />
-            <xs:element name="_visibilityExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="WeatherRelatedRoadConditionTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="blackIce" />
-            <xs:enumeration value="deepSnow" />
-            <xs:enumeration value="dry" />
-            <xs:enumeration value="freezingOfWetRoads" />
-            <xs:enumeration value="freezingPavements" />
-            <xs:enumeration value="freezingRain" />
-            <xs:enumeration value="freshSnow" />
-            <xs:enumeration value="glaze" />
-            <xs:enumeration value="ice" />
-            <xs:enumeration value="iceBuildUp" />
-            <xs:enumeration value="iceWithWheelBarTracks" />
-            <xs:enumeration value="icyPatches" />
-            <xs:enumeration value="looseSnow" />
-            <xs:enumeration value="moist" />
-            <xs:enumeration value="normalWinterConditionsForPedestrians" />
-            <xs:enumeration value="notDry" />
-            <xs:enumeration value="packedSnow" />
-            <xs:enumeration value="rime" />
-            <xs:enumeration value="roadSurfaceMelting" />
-            <xs:enumeration value="slippery" />
-            <xs:enumeration value="slushOnRoad" />
-            <xs:enumeration value="slushStrings" />
-            <xs:enumeration value="snow" />
-            <xs:enumeration value="snowDrifts" />
-            <xs:enumeration value="snowOnPavement" />
-            <xs:enumeration value="wetAndIcyRoad" />
-            <xs:enumeration value="snowOnTheRoad" />
-            <xs:enumeration value="wetIcyPavement" />
-            <xs:enumeration value="streamingWater" />
-            <xs:enumeration value="surfaceWater" />
-            <xs:enumeration value="wet" />
-            <xs:enumeration value="other" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="WeightTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="actual" />
-            <xs:enumeration value="maximumPermitted" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="WidthCharacteristic">
-        <xs:sequence>
-            <xs:element name="comparisonOperator"
-                        type="com:_ComparisonOperatorEnum"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="vehicleWidth"
-                        type="com:MetresAsFloat"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="_widthCharacteristicExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="Wind">
-        <xs:sequence>
-            <xs:element name="windMeasurementHeight"
-                        type="com:MetresAsNonNegativeInteger"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="windSpeed"
-                        type="com:WindSpeedValue"
-                        minOccurs="0" />
-            <xs:element name="maximumWindSpeed"
-                        type="com:WindSpeedValue"
-                        minOccurs="0" />
-            <xs:element name="windDirectionBearing"
-                        type="com:DirectionBearingValue"
-                        minOccurs="0" />
-            <xs:element name="maximumWindDirectionBearing"
-                        type="com:DirectionBearingValue"
-                        minOccurs="0" />
-            <xs:element name="windDirectionCompass"
-                        type="com:DirectionCompassValue"
-                        minOccurs="0" />
-            <xs:element name="maximumWindDirectionCompass"
-                        type="com:DirectionCompassValue"
-                        minOccurs="0" />
-            <xs:element name="_windExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="WindSpeedValue">
-        <xs:complexContent>
-            <xs:extension base="com:DataValue">
-                <xs:sequence>
-                    <xs:element name="windSpeed"
-                                type="com:MetresPerSecond"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_windSpeedValueExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="WinterEquipmentManagementTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="doNotUseStudTyres" />
-            <xs:enumeration value="useSnowChains" />
-            <xs:enumeration value="useSnowChainsOrTyres" />
-            <xs:enumeration value="useSnowTyres" />
-            <xs:enumeration value="winterEquipmentOnBoardRequired" />
-            <xs:enumeration value="other" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="Year">
-        <xs:restriction base="com:NonNegativeInteger" />
-    </xs:simpleType>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="WinterEquipmentManagementTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="doNotUseStudTyres"/>
+      <xs:enumeration value="useSnowChains"/>
+      <xs:enumeration value="useSnowChainsOrTyres"/>
+      <xs:enumeration value="useSnowTyres"/>
+      <xs:enumeration value="winterEquipmentOnBoardRequired"/>
+      <xs:enumeration value="other"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Year">
+    <xs:restriction base="com:NonNegativeInteger"/>
+  </xs:simpleType>
 </xs:schema>

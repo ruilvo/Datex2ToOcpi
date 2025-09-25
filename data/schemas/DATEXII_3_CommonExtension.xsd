@@ -1,265 +1,173 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xs:schema elementFormDefault="qualified"
-           attributeFormDefault="unqualified"
-           xmlns:comx="http://datex2.eu/schema/3/commonExtension"
-           version="3.3"
-           targetNamespace="http://datex2.eu/schema/3/commonExtension"
-           xmlns:com="http://datex2.eu/schema/3/common"
-           xmlns:tro="http://datex2.eu/schema/3/trafficRegulation"
-           xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:import namespace="http://datex2.eu/schema/3/trafficRegulation"
-               schemaLocation="DATEXII_3_TrafficRegulation.xsd" />
-    <xs:import namespace="http://datex2.eu/schema/3/common"
-               schemaLocation="DATEXII_3_Common.xsd" />
-    <xs:complexType name="_ApplicableDaysWithinMonthEnum">
-        <xs:simpleContent>
-            <xs:extension base="comx:ApplicableDaysWithinMonthEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_EuSpecialPurposeVehicleEnum">
-        <xs:simpleContent>
-            <xs:extension base="comx:EuSpecialPurposeVehicleEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_EuVehicleCategoryEnum">
-        <xs:simpleContent>
-            <xs:extension base="comx:EuVehicleCategoryEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_FuzzyTimeEnum">
-        <xs:simpleContent>
-            <xs:extension base="comx:FuzzyTimeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_PowerUnitOfMeasureEnum">
-        <xs:simpleContent>
-            <xs:extension base="comx:PowerUnitOfMeasureEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:simpleType name="ADRClass">
-        <xs:restriction base="com:String">
-            <xs:pattern value="[1-9]|[4-6].[1-2]|4.3" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="AgeCharacteristic">
-        <xs:sequence>
-            <xs:element name="comparisonOperator"
-                        type="com:_ComparisonOperatorEnum"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="yearOfFirstRegistration"
-                        type="com:Year"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="_ageCharacteristicExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="ApplicableDaysWithinMonthEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="evenDay" />
-            <xs:enumeration value="oddDay" />
-            <xs:enumeration value="daysFromOneToFifteen" />
-            <xs:enumeration value="daysFromSixteenToThirtyOne" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="DangerousGoodsExtended">
-        <xs:sequence>
-            <xs:element name="adrClassValue"
-                        type="comx:ADRClass"
-                        minOccurs="0"
-                        maxOccurs="13" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="DayWeekMonthExtended">
-        <xs:sequence>
-            <xs:element name="applicableDaysWithinMonth"
-                        type="comx:_ApplicableDaysWithinMonthEnum"
-                        minOccurs="1"
-                        maxOccurs="1" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="EmissionsExtension">
-        <xs:sequence>
-            <xs:element name="comparisonOperator"
-                        type="com:_ComparisonOperatorEnum"
-                        minOccurs="1"
-                        maxOccurs="1" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="EnginePowerCharacteristics">
-        <xs:sequence>
-            <xs:element name="comparisonOperator"
-                        type="com:_ComparisonOperatorEnum"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="enginePower"
-                        type="com:Float"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="unitOfMeasure"
-                        type="comx:_PowerUnitOfMeasureEnum"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="_enginePowerCharacteristicsExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="EuSpecialPurposeVehicleEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="motorCaravan" />
-            <xs:enumeration value="armouredVehicle" />
-            <xs:enumeration value="ambulance" />
-            <xs:enumeration value="hearse" />
-            <xs:enumeration value="trailerCaravan" />
-            <xs:enumeration value="mobileCrane" />
-            <xs:enumeration value="otherSpecialPurposeVehicle" />
-            <xs:enumeration value="wheelChairAccessibleVehicle" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="EuVehicleCategoryEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="m" />
-            <xs:enumeration value="m1" />
-            <xs:enumeration value="m2" />
-            <xs:enumeration value="m3" />
-            <xs:enumeration value="n" />
-            <xs:enumeration value="n1" />
-            <xs:enumeration value="n2" />
-            <xs:enumeration value="n3" />
-            <xs:enumeration value="o" />
-            <xs:enumeration value="o1" />
-            <xs:enumeration value="o2" />
-            <xs:enumeration value="o3" />
-            <xs:enumeration value="o4" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="FuzzyPeriod">
-        <xs:sequence>
-            <xs:element name="beginOrDuration"
-                        type="comx:_FuzzyTimeEnum"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="endOrDuration"
-                        type="comx:_FuzzyTimeEnum"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="_fuzzyPeriodExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="FuzzyTimeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="dawn" />
-            <xs:enumeration value="sunset" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="GrossTrailerWeightCharacteristics">
-        <xs:sequence>
-            <xs:element name="comparisonOperator"
-                        type="com:_ComparisonOperatorEnum"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="grossTrailerWeight"
-                        type="com:Tonnes"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="typeOfWeight"
-                        type="com:_WeightTypeEnum"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="_grossTrailerWeightCharacteristicsExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="PeriodExtended">
-        <xs:sequence>
-            <xs:element name="fuzzyPeriod"
-                        type="comx:FuzzyPeriod"
-                        minOccurs="0"
-                        maxOccurs="unbounded" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="PowerUnitOfMeasureEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="kilowatt" />
-            <xs:enumeration value="horsepower" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="RegulatedCharacteristics">
-        <xs:sequence>
-            <xs:element name="euVehicleCategory"
-                        type="comx:_EuVehicleCategoryEnum"
-                        minOccurs="0"
-                        maxOccurs="unbounded" />
-            <xs:element name="euSpecialPurposeVehicle"
-                        type="comx:_EuSpecialPurposeVehicleEnum"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="nationalSpecialPurposeVehicle"
-                        type="com:MultilingualString"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="_regulatedCharacteristicsExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="TrailerCharacteristics">
-        <xs:sequence>
-            <xs:element name="grossTrailerWeightCharacteristics"
-                        type="comx:GrossTrailerWeightCharacteristics" />
-            <xs:element name="_trailerCharacteristicsExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="VehicleCharacteristicsExtended">
-        <xs:sequence>
-            <xs:element name="ageCharacteristic"
-                        type="comx:AgeCharacteristic"
-                        minOccurs="0" />
-            <xs:element name="maximumDesignSpeed"
-                        type="tro:Speed"
-                        minOccurs="0" />
-            <xs:element name="trailerCharacteristics"
-                        type="comx:TrailerCharacteristics"
-                        minOccurs="0" />
-            <xs:element name="hazardousMaterials"
-                        type="com:HazardousMaterials"
-                        minOccurs="0" />
-            <xs:element name="enginePowerCharacteristics"
-                        type="comx:EnginePowerCharacteristics"
-                        minOccurs="0"
-                        maxOccurs="2" />
-            <xs:element name="regulatedCharacteristics"
-                        type="comx:RegulatedCharacteristics"
-                        minOccurs="0"
-                        maxOccurs="unbounded" />
-        </xs:sequence>
-    </xs:complexType>
+<xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:comx="http://datex2.eu/schema/3/commonExtension" version="3.3" targetNamespace="http://datex2.eu/schema/3/commonExtension" xmlns:com="http://datex2.eu/schema/3/common" xmlns:tro="http://datex2.eu/schema/3/trafficRegulation" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://datex2.eu/schema/3/trafficRegulation" schemaLocation="DATEXII_3_TrafficRegulation.xsd"/>
+  <xs:import namespace="http://datex2.eu/schema/3/common" schemaLocation="DATEXII_3_Common.xsd"/>
+  <xs:complexType name="_ApplicableDaysWithinMonthEnum">
+    <xs:simpleContent>
+      <xs:extension base="comx:ApplicableDaysWithinMonthEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_EuSpecialPurposeVehicleEnum">
+    <xs:simpleContent>
+      <xs:extension base="comx:EuSpecialPurposeVehicleEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_EuVehicleCategoryEnum">
+    <xs:simpleContent>
+      <xs:extension base="comx:EuVehicleCategoryEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_FuzzyTimeEnum">
+    <xs:simpleContent>
+      <xs:extension base="comx:FuzzyTimeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_PowerUnitOfMeasureEnum">
+    <xs:simpleContent>
+      <xs:extension base="comx:PowerUnitOfMeasureEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="ADRClass">
+    <xs:restriction base="com:String">
+      <xs:pattern value="[1-9]|[4-6].[1-2]|4.3"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AgeCharacteristic">
+    <xs:sequence>
+      <xs:element name="comparisonOperator" type="com:_ComparisonOperatorEnum" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="yearOfFirstRegistration" type="com:Year" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="_ageCharacteristicExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ApplicableDaysWithinMonthEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="evenDay"/>
+      <xs:enumeration value="oddDay"/>
+      <xs:enumeration value="daysFromOneToFifteen"/>
+      <xs:enumeration value="daysFromSixteenToThirtyOne"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="DangerousGoodsExtended">
+    <xs:sequence>
+      <xs:element name="adrClassValue" type="comx:ADRClass" minOccurs="0" maxOccurs="13"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DayWeekMonthExtended">
+    <xs:sequence>
+      <xs:element name="applicableDaysWithinMonth" type="comx:_ApplicableDaysWithinMonthEnum" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EmissionsExtension">
+    <xs:sequence>
+      <xs:element name="comparisonOperator" type="com:_ComparisonOperatorEnum" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EnginePowerCharacteristics">
+    <xs:sequence>
+      <xs:element name="comparisonOperator" type="com:_ComparisonOperatorEnum" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="enginePower" type="com:Float" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="unitOfMeasure" type="comx:_PowerUnitOfMeasureEnum" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="_enginePowerCharacteristicsExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="EuSpecialPurposeVehicleEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="motorCaravan"/>
+      <xs:enumeration value="armouredVehicle"/>
+      <xs:enumeration value="ambulance"/>
+      <xs:enumeration value="hearse"/>
+      <xs:enumeration value="trailerCaravan"/>
+      <xs:enumeration value="mobileCrane"/>
+      <xs:enumeration value="otherSpecialPurposeVehicle"/>
+      <xs:enumeration value="wheelChairAccessibleVehicle"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EuVehicleCategoryEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="m"/>
+      <xs:enumeration value="m1"/>
+      <xs:enumeration value="m2"/>
+      <xs:enumeration value="m3"/>
+      <xs:enumeration value="n"/>
+      <xs:enumeration value="n1"/>
+      <xs:enumeration value="n2"/>
+      <xs:enumeration value="n3"/>
+      <xs:enumeration value="o"/>
+      <xs:enumeration value="o1"/>
+      <xs:enumeration value="o2"/>
+      <xs:enumeration value="o3"/>
+      <xs:enumeration value="o4"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="FuzzyPeriod">
+    <xs:sequence>
+      <xs:element name="beginOrDuration" type="comx:_FuzzyTimeEnum" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="endOrDuration" type="comx:_FuzzyTimeEnum" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="_fuzzyPeriodExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="FuzzyTimeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dawn"/>
+      <xs:enumeration value="sunset"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="GrossTrailerWeightCharacteristics">
+    <xs:sequence>
+      <xs:element name="comparisonOperator" type="com:_ComparisonOperatorEnum" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="grossTrailerWeight" type="com:Tonnes" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="typeOfWeight" type="com:_WeightTypeEnum" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="_grossTrailerWeightCharacteristicsExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PeriodExtended">
+    <xs:sequence>
+      <xs:element name="fuzzyPeriod" type="comx:FuzzyPeriod" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="PowerUnitOfMeasureEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="kilowatt"/>
+      <xs:enumeration value="horsepower"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="RegulatedCharacteristics">
+    <xs:sequence>
+      <xs:element name="euVehicleCategory" type="comx:_EuVehicleCategoryEnum" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="euSpecialPurposeVehicle" type="comx:_EuSpecialPurposeVehicleEnum" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="nationalSpecialPurposeVehicle" type="com:MultilingualString" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="_regulatedCharacteristicsExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TrailerCharacteristics">
+    <xs:sequence>
+      <xs:element name="grossTrailerWeightCharacteristics" type="comx:GrossTrailerWeightCharacteristics"/>
+      <xs:element name="_trailerCharacteristicsExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VehicleCharacteristicsExtended">
+    <xs:sequence>
+      <xs:element name="ageCharacteristic" type="comx:AgeCharacteristic" minOccurs="0"/>
+      <xs:element name="maximumDesignSpeed" type="tro:Speed" minOccurs="0"/>
+      <xs:element name="trailerCharacteristics" type="comx:TrailerCharacteristics" minOccurs="0"/>
+      <xs:element name="hazardousMaterials" type="com:HazardousMaterials" minOccurs="0"/>
+      <xs:element name="enginePowerCharacteristics" type="comx:EnginePowerCharacteristics" minOccurs="0" maxOccurs="2"/>
+      <xs:element name="regulatedCharacteristics" type="comx:RegulatedCharacteristics" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
 </xs:schema>

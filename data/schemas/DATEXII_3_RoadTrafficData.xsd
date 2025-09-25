@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:roa="http://datex2.eu/schema/3/roadTrafficData" version="3.3" targetNamespace="http://datex2.eu/schema/3/roadTrafficData" xmlns:com="http://datex2.eu/schema/3/common" xmlns:loc="http://datex2.eu/schema/3/locationReferencing" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://datex2.eu/schema/3/locationReferencing" schemaLocation="DATEXII_3_LocationReferencing.xsd"/>
+  <xs:import namespace="http://datex2.eu/schema/3/common" schemaLocation="DATEXII_3_Common.xsd"/>
+  <xs:complexType name="_MeasuredOrDerivedDataTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="roa:MeasuredOrDerivedDataTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_MeasurementSiteIndexMeasurementSpecificCharacteristics">
+    <xs:sequence>
+      <xs:element name="measurementSpecificCharacteristics" type="roa:MeasurementSpecificCharacteristics" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute name="index" type="xs:int" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="_MeasurementSiteTableVersionedReference">
+    <xs:complexContent>
+      <xs:extension base="com:VersionedReference">
+        <xs:attribute name="targetClass" type="xs:string" use="required" fixed="roa:MeasurementSiteTable"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="_MeasurementSiteVersionedReference">
+    <xs:complexContent>
+      <xs:extension base="com:VersionedReference">
+        <xs:attribute name="targetClass" type="xs:string" use="required" fixed="roa:MeasurementSite"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="_PhysicalQuantityFaultEnum">
+    <xs:simpleContent>
+      <xs:extension base="roa:PhysicalQuantityFaultEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_PredefinedLocationGroupVersionedReference">
+    <xs:complexContent>
+      <xs:extension base="com:VersionedReference">
+        <xs:attribute name="targetClass" type="xs:string" use="required" fixed="loc:PredefinedLocationGroup"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="_SiteMeasurementsIndexPhysicalQuantity">
+    <xs:sequence>
+      <xs:element name="physicalQuantity" type="roa:PhysicalQuantity" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute name="index" type="xs:int" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="_TimeMeaningEnum">
+    <xs:simpleContent>
+      <xs:extension base="roa:TimeMeaningEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_TrafficStatusEnum">
+    <xs:simpleContent>
+      <xs:extension base="roa:TrafficStatusEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_TravelTimeTrendTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="roa:TravelTimeTrendTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_TravelTimeTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="roa:TravelTimeTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="AxleCharacteristics">
+    <xs:sequence>
+      <xs:element name="maximumWeight" type="com:Tonnes" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="minimumWeight" type="com:Tonnes" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="_axleCharacteristicsExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AxleFlowValue">
+    <xs:complexContent>
+      <xs:extension base="com:DataValue">
+        <xs:sequence>
+          <xs:element name="axleFlowRate" type="com:AxlesPerHour" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_axleFlowValueExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BasicData" abstract="true">
+    <xs:sequence>
+      <xs:element name="measurementOrCalculationTime" type="roa:MeasurementOrCalculationTime" minOccurs="0"/>
+      <xs:element name="_basicDataExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DailyTrafficFlowValue">
+    <xs:complexContent>
+      <xs:extension base="com:DataValue">
+        <xs:sequence>
+          <xs:element name="vehicleFlowRate" type="roa:VehiclesPerDay" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_dailyTrafficFlowValueExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DateTimeValue">
+    <xs:complexContent>
+      <xs:extension base="com:DataValue">
+        <xs:sequence>
+          <xs:element name="dateTime" type="com:DateTime" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_dateTimeValueExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="DensityVehiclesPerKilometre">
+    <xs:restriction base="com:NonNegativeInteger"/>
+  </xs:simpleType>
+  <xs:complexType name="DurationValue">
+    <xs:complexContent>
+      <xs:extension base="com:DataValue">
+        <xs:sequence>
+          <xs:element name="duration" type="com:Seconds" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_durationValueExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ElaboratedDataPublication">
+    <xs:complexContent>
+      <xs:extension base="com:PayloadPublication">
+        <xs:sequence>
+          <xs:element name="forecastDefault" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="periodDefault" type="com:Seconds" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="timeDefault" type="com:DateTime" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="headerInformation" type="com:HeaderInformation"/>
+          <xs:element name="referenceSettings" type="roa:ReferenceSettings" minOccurs="0"/>
+          <xs:element name="physicalQuantity" type="roa:PhysicalQuantity" maxOccurs="unbounded"/>
+          <xs:element name="informationManager" type="com:InternationalIdentifier" minOccurs="0"/>
+          <xs:element name="_elaboratedDataPublicationExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="HumidityInformation">
+    <xs:complexContent>
+      <xs:extension base="roa:WeatherData">
+        <xs:sequence>
+          <xs:element name="humidity" type="com:Humidity"/>
+          <xs:element name="_humidityInformationExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="IndividualVehicleDataValues">
+    <xs:complexContent>
+      <xs:extension base="roa:TrafficData">
+        <xs:sequence>
+          <xs:element name="arrivalTime" type="com:DateTime" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="distanceGap" type="com:MetresAsFloat" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="distanceHeadway" type="com:MetresAsFloat" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="exitTime" type="com:DateTime" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="passageDuration" type="com:Seconds" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="presenceDuration" type="com:Seconds" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="speed" type="com:KilometresPerHour" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="timeGap" type="com:Seconds" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="timeHeadway" type="com:Seconds" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="individualVehicle" type="com:Vehicle" minOccurs="0"/>
+          <xs:element name="_individualVehicleDataValuesExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MeasuredDataPublication">
+    <xs:complexContent>
+      <xs:extension base="com:PayloadPublication">
+        <xs:sequence>
+          <xs:element name="measurementSiteTableReference" type="roa:_MeasurementSiteTableVersionedReference" minOccurs="1" maxOccurs="unbounded"/>
+          <xs:element name="headerInformation" type="com:HeaderInformation"/>
+          <xs:element name="siteMeasurements" type="roa:SiteMeasurements" maxOccurs="unbounded"/>
+          <xs:element name="_measuredDataPublicationExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="MeasuredOrDerivedDataTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="humidityInformation"/>
+      <xs:enumeration value="individualVehicleMeasurements"/>
+      <xs:enumeration value="pollutionInformation"/>
+      <xs:enumeration value="precipitationInformation"/>
+      <xs:enumeration value="pressureInformation"/>
+      <xs:enumeration value="roadSurfaceConditionInformation"/>
+      <xs:enumeration value="temperatureInformation"/>
+      <xs:enumeration value="trafficConcentration"/>
+      <xs:enumeration value="trafficFlow"/>
+      <xs:enumeration value="trafficGap"/>
+      <xs:enumeration value="trafficHeadway"/>
+      <xs:enumeration value="trafficSpeed"/>
+      <xs:enumeration value="trafficStatusInformation"/>
+      <xs:enumeration value="travelTimeInformation"/>
+      <xs:enumeration value="visibilityInformation"/>
+      <xs:enumeration value="windInformation"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="MeasurementOrCalculationTime">
+    <xs:sequence>
+      <xs:element name="timeMeaning" type="roa:_TimeMeaningEnum" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="timeValue" type="com:DateTime" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="period" type="com:Period" minOccurs="0"/>
+      <xs:element name="_measurementOrCalculationTimeExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="timePrecision" type="com:TimePrecisionEnum" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="MeasurementSite">
+    <xs:sequence>
+      <xs:element name="measurementSiteRecordVersionTime" type="com:DateTime" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="measurementEquipmentReference" type="com:String" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="measurementEquipmentTypeUsed" type="com:MultilingualString" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="measurementSiteName" type="com:MultilingualString" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="measurementSiteNumberOfLanes" type="com:NonNegativeInteger" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="measurementSiteIdentification" type="com:String" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="measurementSpecificCharacteristics" type="roa:_MeasurementSiteIndexMeasurementSpecificCharacteristics" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="measurementSiteLocation" type="loc:LocationReference"/>
+      <xs:element name="informationManagerOverride" type="com:InternationalIdentifier" minOccurs="0"/>
+      <xs:element name="_measurementSiteExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="version" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="MeasurementSiteTable">
+    <xs:sequence>
+      <xs:element name="measurementSiteTableIdentification" type="com:String" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="measurementSite" type="roa:MeasurementSite" maxOccurs="unbounded"/>
+      <xs:element name="informationManager" type="com:InternationalIdentifier" minOccurs="0"/>
+      <xs:element name="_measurementSiteTableExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="version" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="MeasurementSiteTablePublication">
+    <xs:complexContent>
+      <xs:extension base="com:PayloadPublication">
+        <xs:sequence>
+          <xs:element name="headerInformation" type="com:HeaderInformation"/>
+          <xs:element name="measurementSiteTable" type="roa:MeasurementSiteTable" maxOccurs="unbounded"/>
+          <xs:element name="_measurementSiteTablePublicationExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MeasurementSpecificCharacteristics">
+    <xs:sequence>
+      <xs:element name="accuracy" type="com:Percentage" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="computationMethod" type="com:_ComputationMethodEnum" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="defaultMeasurementHeight" type="com:MetresAsFloat" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="measurementSide" type="loc:_DirectionEnum" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="period" type="com:Seconds" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="smoothingFactor" type="com:Float" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="specificMeasurementValueType" type="roa:_MeasuredOrDerivedDataTypeEnum" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="specificVehicleCharacteristics" type="com:VehicleCharacteristics" minOccurs="0"/>
+      <xs:element name="specificLane" type="loc:Lane" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="axleCharacteristics" type="roa:AxleCharacteristics" minOccurs="0"/>
+      <xs:element name="_measurementSpecificCharacteristicsExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="PassengerCarUnitsPerHour">
+    <xs:restriction base="com:NonNegativeInteger"/>
+  </xs:simpleType>
+  <xs:complexType name="PcuFlowValue">
+    <xs:complexContent>
+      <xs:extension base="com:DataValue">
+        <xs:sequence>
+          <xs:element name="pcuFlowRate" type="roa:PassengerCarUnitsPerHour" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_pcuFlowValueExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PhysicalQuantity" abstract="true">
+    <xs:sequence>
+      <xs:element name="forecast" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="measurementEquipmentTypeUsed" type="com:MultilingualString" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="pertinentLocation" type="loc:LocationReference" minOccurs="0"/>
+      <xs:element name="physicalQuantityFault" type="roa:PhysicalQuantityFault" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="source" type="com:Source" minOccurs="0"/>
+      <xs:element name="informationManagerOverride" type="com:InternationalIdentifier" minOccurs="0"/>
+      <xs:element name="_physicalQuantityExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PhysicalQuantityFault">
+    <xs:complexContent>
+      <xs:extension base="com:Fault">
+        <xs:sequence>
+          <xs:element name="physicalQuantityFaultType" type="roa:_PhysicalQuantityFaultEnum" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_physicalQuantityFaultExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="PhysicalQuantityFaultEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="intermittentDataValues"/>
+      <xs:enumeration value="noDataValuesAvailable"/>
+      <xs:enumeration value="spuriousUnreliableDataValues"/>
+      <xs:enumeration value="unspecifiedOrUnknownFault"/>
+      <xs:enumeration value="other"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="PollutionInformation">
+    <xs:complexContent>
+      <xs:extension base="roa:WeatherData">
+        <xs:sequence>
+          <xs:element name="pollution" type="com:Pollution" maxOccurs="unbounded"/>
+          <xs:element name="_pollutionInformationExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PrecipitationInformation">
+    <xs:complexContent>
+      <xs:extension base="roa:WeatherData">
+        <xs:sequence>
+          <xs:element name="noPrecipitation" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="precipitationDetail" type="com:PrecipitationDetail" minOccurs="0"/>
+          <xs:element name="_precipitationInformationExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PressureInformation">
+    <xs:complexContent>
+      <xs:extension base="roa:WeatherData">
+        <xs:sequence>
+          <xs:element name="pressure" type="com:Pressure"/>
+          <xs:element name="_pressureInformationExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ReferenceSettings">
+    <xs:sequence>
+      <xs:element name="predefinedLocationGroupReference" type="roa:_PredefinedLocationGroupVersionedReference" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="trafficStatusDefault" type="roa:_TrafficStatusEnum" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="_referenceSettingsExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RoadSurfaceConditionInformation">
+    <xs:complexContent>
+      <xs:extension base="roa:WeatherData">
+        <xs:sequence>
+          <xs:element name="weatherRelatedRoadConditionType" type="com:_WeatherRelatedRoadConditionTypeEnum" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="roadSurfaceConditionMeasurements" type="com:RoadSurfaceConditionMeasurements"/>
+          <xs:element name="_roadSurfaceConditionInformationExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SinglePhysicalQuantity">
+    <xs:complexContent>
+      <xs:extension base="roa:PhysicalQuantity">
+        <xs:sequence>
+          <xs:element name="basicData" type="roa:BasicData" minOccurs="0"/>
+          <xs:element name="_singlePhysicalQuantityExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SiteMeasurements">
+    <xs:sequence>
+      <xs:element name="measurementSiteReference" type="roa:_MeasurementSiteVersionedReference" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="physicalQuantity" type="roa:_SiteMeasurementsIndexPhysicalQuantity" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="measurementTimeDefault" type="roa:MeasurementOrCalculationTime"/>
+      <xs:element name="_siteMeasurementsExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SpeedPercentile">
+    <xs:sequence>
+      <xs:element name="vehiclePercentage" type="com:PercentageValue"/>
+      <xs:element name="speedPercentile" type="com:SpeedValue"/>
+      <xs:element name="_speedPercentileExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TemperatureInformation">
+    <xs:complexContent>
+      <xs:extension base="roa:WeatherData">
+        <xs:sequence>
+          <xs:element name="temperature" type="com:Temperature"/>
+          <xs:element name="_temperatureInformationExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="TimeMeaningEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="beginTime"/>
+      <xs:enumeration value="endTime"/>
+      <xs:enumeration value="middleTime"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="TimeProfiledPhysicalQuantity">
+    <xs:complexContent>
+      <xs:extension base="roa:PhysicalQuantity">
+        <xs:sequence>
+          <xs:element name="basicData" type="roa:BasicData" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="_timeProfiledPhysicalQuantityExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TrafficConcentration">
+    <xs:complexContent>
+      <xs:extension base="roa:TrafficData">
+        <xs:sequence>
+          <xs:element name="density" type="roa:TrafficDensityValue" minOccurs="0"/>
+          <xs:element name="occupancy" type="com:PercentageValue" minOccurs="0"/>
+          <xs:element name="_trafficConcentrationExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TrafficData" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="roa:BasicData">
+        <xs:sequence>
+          <xs:element name="forVehiclesWithCharacteristicsOf" type="com:VehicleCharacteristics" minOccurs="0"/>
+          <xs:element name="_trafficDataExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TrafficDensityValue">
+    <xs:complexContent>
+      <xs:extension base="com:DataValue">
+        <xs:sequence>
+          <xs:element name="densityOfVehicles" type="roa:DensityVehiclesPerKilometre" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_trafficDensityValueExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TrafficFlow">
+    <xs:complexContent>
+      <xs:extension base="roa:TrafficData">
+        <xs:sequence>
+          <xs:element name="axleFlow" type="roa:AxleFlowValue" minOccurs="0"/>
+          <xs:element name="pcuFlow" type="roa:PcuFlowValue" minOccurs="0"/>
+          <xs:element name="percentageLongVehicles" type="com:PercentageValue" minOccurs="0"/>
+          <xs:element name="vehicleFlow" type="com:VehicleFlowValue" minOccurs="0"/>
+          <xs:element name="normallyExpectedFlow" type="com:VehicleFlowValue" minOccurs="0"/>
+          <xs:element name="annualAverageDailyTraffic" type="roa:DailyTrafficFlowValue" minOccurs="0"/>
+          <xs:element name="monthlyAverageDailyTraffic" type="roa:DailyTrafficFlowValue" minOccurs="0"/>
+          <xs:element name="axleCharacteristics" type="roa:AxleCharacteristics" minOccurs="0"/>
+          <xs:element name="_trafficFlowExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TrafficGap">
+    <xs:complexContent>
+      <xs:extension base="roa:TrafficData">
+        <xs:sequence>
+          <xs:element name="averageDistanceGap" type="com:FloatingPointMetreDistanceValue" minOccurs="0"/>
+          <xs:element name="averageTimeGap" type="roa:DurationValue" minOccurs="0"/>
+          <xs:element name="_trafficGapExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TrafficHeadway">
+    <xs:complexContent>
+      <xs:extension base="roa:TrafficData">
+        <xs:sequence>
+          <xs:element name="averageDistanceHeadway" type="com:FloatingPointMetreDistanceValue" minOccurs="0"/>
+          <xs:element name="averageTimeHeadway" type="roa:DurationValue" minOccurs="0"/>
+          <xs:element name="_trafficHeadwayExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TrafficSpeed">
+    <xs:complexContent>
+      <xs:extension base="roa:TrafficData">
+        <xs:sequence>
+          <xs:element name="averageVehicleSpeed" type="com:SpeedValue" minOccurs="0"/>
+          <xs:element name="speedPercentile" type="roa:SpeedPercentile" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="normallyExpectedSpeed" type="com:SpeedValue" minOccurs="0"/>
+          <xs:element name="minimumSpeed" type="com:SpeedValue" minOccurs="0"/>
+          <xs:element name="maximumSpeed" type="com:SpeedValue" minOccurs="0"/>
+          <xs:element name="_trafficSpeedExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TrafficStatus">
+    <xs:complexContent>
+      <xs:extension base="roa:BasicData">
+        <xs:sequence>
+          <xs:element name="trafficTrendType" type="com:_TrafficTrendTypeEnum" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="trafficStatus" type="roa:TrafficStatusValue" minOccurs="0"/>
+          <xs:element name="_trafficStatusExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="TrafficStatusEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="stationary"/>
+      <xs:enumeration value="queuing"/>
+      <xs:enumeration value="slow"/>
+      <xs:enumeration value="heavy"/>
+      <xs:enumeration value="unspecifiedAbnormal"/>
+      <xs:enumeration value="freeFlow"/>
+      <xs:enumeration value="unknown"/>
+      <xs:enumeration value="other"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="TrafficStatusValue">
+    <xs:complexContent>
+      <xs:extension base="com:DataValue">
+        <xs:sequence>
+          <xs:element name="trafficStatusValue" type="roa:_TrafficStatusEnum" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_trafficStatusValueExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TravelTimeData">
+    <xs:complexContent>
+      <xs:extension base="roa:BasicData">
+        <xs:sequence>
+          <xs:element name="travelTimeTrendType" type="roa:_TravelTimeTrendTypeEnum" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="travelTimeType" type="roa:_TravelTimeTypeEnum" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="vehicleType" type="com:_VehicleTypeEnum" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="travelTime" type="roa:DurationValue" minOccurs="0"/>
+          <xs:element name="freeFlowTravelTime" type="roa:DurationValue" minOccurs="0"/>
+          <xs:element name="normallyExpectedTravelTime" type="roa:DurationValue" minOccurs="0"/>
+          <xs:element name="travelTimeDelay" type="roa:DurationValue" minOccurs="0"/>
+          <xs:element name="freeFlowSpeed" type="com:SpeedValue" minOccurs="0"/>
+          <xs:element name="_travelTimeDataExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="TravelTimeTrendTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="decreasing"/>
+      <xs:enumeration value="increasing"/>
+      <xs:enumeration value="stable"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TravelTimeTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="best"/>
+      <xs:enumeration value="estimated"/>
+      <xs:enumeration value="instantaneous"/>
+      <xs:enumeration value="reconstituted"/>
+      <xs:enumeration value="predictor"/>
+      <xs:enumeration value="profile"/>
+      <xs:enumeration value="sum"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="VehiclesPerDay">
+    <xs:restriction base="com:NonNegativeInteger"/>
+  </xs:simpleType>
+  <xs:complexType name="VisibilityInformation">
+    <xs:complexContent>
+      <xs:extension base="roa:WeatherData">
+        <xs:sequence>
+          <xs:element name="visibility" type="com:Visibility"/>
+          <xs:element name="_visibilityInformationExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="WeatherData" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="roa:BasicData">
+        <xs:sequence>
+          <xs:element name="_weatherDataExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="WindInformation">
+    <xs:complexContent>
+      <xs:extension base="roa:WeatherData">
+        <xs:sequence>
+          <xs:element name="wind" type="com:Wind"/>
+          <xs:element name="_windInformationExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

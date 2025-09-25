@@ -1,1244 +1,838 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xs:schema elementFormDefault="qualified"
-           attributeFormDefault="unqualified"
-           xmlns:tro="http://datex2.eu/schema/3/trafficRegulation"
-           version="1"
-           targetNamespace="http://datex2.eu/schema/3/trafficRegulation"
-           xmlns:com="http://datex2.eu/schema/3/common"
-           xmlns:loc="http://datex2.eu/schema/3/locationReferencing"
-           xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:import namespace="http://datex2.eu/schema/3/locationReferencing"
-               schemaLocation="DATEXII_3_LocationReferencing.xsd" />
-    <xs:import namespace="http://datex2.eu/schema/3/common"
-               schemaLocation="DATEXII_3_Common.xsd" />
-    <xs:complexType name="_AccessConditionTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="tro:AccessConditionTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_AccessRestrictionTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="tro:AccessRestrictionTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_AmbientWarningTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="tro:AmbientWarningTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_BendOfPriorityRoadTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="tro:BendOfPriorityRoadTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_ConditionOperator">
-        <xs:simpleContent>
-            <xs:extension base="tro:ConditionOperator">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_DirectionRestrictionTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="tro:DirectionRestrictionTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_DriverCharacteristicsTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="tro:DriverCharacteristicsTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_LicenseCharacteristicsEnum">
-        <xs:simpleContent>
-            <xs:extension base="tro:LicenseCharacteristicsEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_NonVehicularRoadUserTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="tro:NonVehicularRoadUserTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_PriorityRuleTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="tro:PriorityRuleTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_ReasonForRegulationEnum">
-        <xs:simpleContent>
-            <xs:extension base="tro:ReasonForRegulationEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_RoadOrCarriagewayOrLaneLayoutType">
-        <xs:simpleContent>
-            <xs:extension base="tro:RoadOrCarriagewayOrLaneLayoutType">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_RoadTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="tro:RoadTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_RoadWarningTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="tro:RoadWarningTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_StandingOrParkingRestricitonTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="tro:StandingOrParkingRestricitonTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_SteepHillDirectionTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="tro:SteepHillDirectionTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_TrafficAheadTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="tro:TrafficAheadTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_TrafficRegulationInstallerTypeEnum">
-        <xs:simpleContent>
-            <xs:extension base="tro:TrafficRegulationInstallerTypeEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_TrafficRegulationOrderStatusEnum">
-        <xs:simpleContent>
-            <xs:extension base="tro:TrafficRegulationOrderStatusEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_TrafficRegulationStatusEnum">
-        <xs:simpleContent>
-            <xs:extension base="tro:TrafficRegulationStatusEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="_UnitOfSpeedEnum">
-        <xs:simpleContent>
-            <xs:extension base="tro:UnitOfSpeedEnum">
-                <xs:attribute name="_extendedValue"
-                              type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="AccessCondition">
-        <xs:complexContent>
-            <xs:extension base="tro:Condition">
-                <xs:sequence>
-                    <xs:element name="accessConditionType"
-                                type="tro:_AccessConditionTypeEnum"
-                                minOccurs="1"
-                                maxOccurs="unbounded" />
-                    <xs:element name="otherAccessRestriction"
-                                type="com:MultilingualString"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="applicableLocation"
-                                type="loc:LocationReference"
-                                minOccurs="0" />
-                    <xs:element name="_accessConditionExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="AccessConditionTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="accessOnly" />
-            <xs:enumeration value="destinationTraffic" />
-            <xs:enumeration value="loadingAndUnloading" />
-            <xs:enumeration value="passengerLoadingAndUnloading" />
-            <xs:enumeration value="sourceAndDestinationTraffic" />
-            <xs:enumeration value="sourceTraffic" />
-            <xs:enumeration value="throughTraffic" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="AccessRestriction">
-        <xs:complexContent>
-            <xs:extension base="tro:TypeOfRegulation">
-                <xs:sequence>
-                    <xs:element name="nonVehicularRoadUser"
-                                type="tro:_NonVehicularRoadUserTypeEnum"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="accessRestrictionType"
-                                type="tro:_AccessRestrictionTypeEnum"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_accessRestrictionExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="AccessRestrictionTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="noEntry" />
-            <xs:enumeration value="noUseOfAudibleWarningDevices" />
-            <xs:enumeration value="noPassingWithoutStopping" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="ActivatedRegulation">
+<xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:tro="http://datex2.eu/schema/3/trafficRegulation" version="1" targetNamespace="http://datex2.eu/schema/3/trafficRegulation" xmlns:com="http://datex2.eu/schema/3/common" xmlns:loc="http://datex2.eu/schema/3/locationReferencing" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://datex2.eu/schema/3/locationReferencing" schemaLocation="DATEXII_3_LocationReferencing.xsd"/>
+  <xs:import namespace="http://datex2.eu/schema/3/common" schemaLocation="DATEXII_3_Common.xsd"/>
+  <xs:complexType name="_AccessConditionTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="tro:AccessConditionTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_AccessRestrictionTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="tro:AccessRestrictionTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_AmbientWarningTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="tro:AmbientWarningTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_BendOfPriorityRoadTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="tro:BendOfPriorityRoadTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_ConditionOperator">
+    <xs:simpleContent>
+      <xs:extension base="tro:ConditionOperator">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_DirectionRestrictionTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="tro:DirectionRestrictionTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_DriverCharacteristicsTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="tro:DriverCharacteristicsTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_LicenseCharacteristicsEnum">
+    <xs:simpleContent>
+      <xs:extension base="tro:LicenseCharacteristicsEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_NonVehicularRoadUserTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="tro:NonVehicularRoadUserTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_PriorityRuleTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="tro:PriorityRuleTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_ReasonForRegulationEnum">
+    <xs:simpleContent>
+      <xs:extension base="tro:ReasonForRegulationEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_RoadOrCarriagewayOrLaneLayoutType">
+    <xs:simpleContent>
+      <xs:extension base="tro:RoadOrCarriagewayOrLaneLayoutType">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_RoadTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="tro:RoadTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_RoadWarningTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="tro:RoadWarningTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_StandingOrParkingRestricitonTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="tro:StandingOrParkingRestricitonTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_SteepHillDirectionTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="tro:SteepHillDirectionTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_TrafficAheadTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="tro:TrafficAheadTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_TrafficRegulationInstallerTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="tro:TrafficRegulationInstallerTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_TrafficRegulationOrderStatusEnum">
+    <xs:simpleContent>
+      <xs:extension base="tro:TrafficRegulationOrderStatusEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_TrafficRegulationStatusEnum">
+    <xs:simpleContent>
+      <xs:extension base="tro:TrafficRegulationStatusEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_UnitOfSpeedEnum">
+    <xs:simpleContent>
+      <xs:extension base="tro:UnitOfSpeedEnum">
+        <xs:attribute name="_extendedValue" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="AccessCondition">
+    <xs:complexContent>
+      <xs:extension base="tro:Condition">
         <xs:sequence>
-            <xs:element name="actor"
-                        type="com:MultilingualString"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="issuingAuthority"
-                        type="com:MultilingualString"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="regulationId"
-                        type="com:String"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="trafficRegulation"
-                        type="tro:TrafficRegulation"
-                        maxOccurs="unbounded" />
-            <xs:element name="_activatedRegulationExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
+          <xs:element name="accessConditionType" type="tro:_AccessConditionTypeEnum" minOccurs="1" maxOccurs="unbounded"/>
+          <xs:element name="otherAccessRestriction" type="com:MultilingualString" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="applicableLocation" type="loc:LocationReference" minOccurs="0"/>
+          <xs:element name="_accessConditionExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="AdHocTrafficRegulation">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="AccessConditionTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="accessOnly"/>
+      <xs:enumeration value="destinationTraffic"/>
+      <xs:enumeration value="loadingAndUnloading"/>
+      <xs:enumeration value="passengerLoadingAndUnloading"/>
+      <xs:enumeration value="sourceAndDestinationTraffic"/>
+      <xs:enumeration value="sourceTraffic"/>
+      <xs:enumeration value="throughTraffic"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AccessRestriction">
+    <xs:complexContent>
+      <xs:extension base="tro:TypeOfRegulation">
         <xs:sequence>
-            <xs:element name="installer"
-                        type="tro:_TrafficRegulationInstallerTypeEnum"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="trafficRegulation"
-                        type="tro:TrafficRegulation"
-                        maxOccurs="unbounded" />
-            <xs:element name="_adHocTrafficRegulationExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
+          <xs:element name="nonVehicularRoadUser" type="tro:_NonVehicularRoadUserTypeEnum" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="accessRestrictionType" type="tro:_AccessRestrictionTypeEnum" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_accessRestrictionExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="AdHocTrafficRegulations">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="AccessRestrictionTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="noEntry"/>
+      <xs:enumeration value="noUseOfAudibleWarningDevices"/>
+      <xs:enumeration value="noPassingWithoutStopping"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ActivatedRegulation">
+    <xs:sequence>
+      <xs:element name="actor" type="com:MultilingualString" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="issuingAuthority" type="com:MultilingualString" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="regulationId" type="com:String" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="trafficRegulation" type="tro:TrafficRegulation" maxOccurs="unbounded"/>
+      <xs:element name="_activatedRegulationExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AdHocTrafficRegulation">
+    <xs:sequence>
+      <xs:element name="installer" type="tro:_TrafficRegulationInstallerTypeEnum" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="trafficRegulation" type="tro:TrafficRegulation" maxOccurs="unbounded"/>
+      <xs:element name="_adHocTrafficRegulationExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AdHocTrafficRegulations">
+    <xs:sequence>
+      <xs:element name="adHocTrafficRegulation" type="tro:AdHocTrafficRegulation" maxOccurs="unbounded"/>
+      <xs:element name="_adHocTrafficRegulationsExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AlternateRoadOrCarriagewayOrLaneLayout">
+    <xs:complexContent>
+      <xs:extension base="tro:TypeOfRegulation">
         <xs:sequence>
-            <xs:element name="adHocTrafficRegulation"
-                        type="tro:AdHocTrafficRegulation"
-                        maxOccurs="unbounded" />
-            <xs:element name="_adHocTrafficRegulationsExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
+          <xs:element name="deviationToHardshoulder" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="deviationToOtherCarrriageway" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="mergedToOtherLane" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="yellowMarkings" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="roadOrCarriagewayOrLaneLayoutType" type="tro:_RoadOrCarriagewayOrLaneLayoutType" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="newLayout" type="loc:LinearLocation" minOccurs="0"/>
+          <xs:element name="speedLimit" type="tro:SpeedLimit" minOccurs="0"/>
+          <xs:element name="_alternateRoadOrCarriagewayOrLaneLayoutExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="AlternateRoadOrCarriagewayOrLaneLayout">
-        <xs:complexContent>
-            <xs:extension base="tro:TypeOfRegulation">
-                <xs:sequence>
-                    <xs:element name="deviationToHardshoulder"
-                                type="com:Boolean"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="deviationToOtherCarrriageway"
-                                type="com:Boolean"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="mergedToOtherLane"
-                                type="com:Boolean"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="yellowMarkings"
-                                type="com:Boolean"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="roadOrCarriagewayOrLaneLayoutType"
-                                type="tro:_RoadOrCarriagewayOrLaneLayoutType"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="newLayout"
-                                type="loc:LinearLocation"
-                                minOccurs="0" />
-                    <xs:element name="speedLimit"
-                                type="tro:SpeedLimit"
-                                minOccurs="0" />
-                    <xs:element name="_alternateRoadOrCarriagewayOrLaneLayoutExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="AmbientWarnings">
-        <xs:complexContent>
-            <xs:extension base="tro:Warning">
-                <xs:sequence>
-                    <xs:element name="ambientWarningsType"
-                                type="tro:_AmbientWarningTypeEnum"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_ambientWarningsExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="AmbientWarningTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="accompaniedHorsesCrossing" />
-            <xs:enumeration value="airfield" />
-            <xs:enumeration value="cattle" />
-            <xs:enumeration value="fallingRocks" />
-            <xs:enumeration value="looseGravel" />
-            <xs:enumeration value="migratoryToadCrossing" />
-            <xs:enumeration value="otherDanger" />
-            <xs:enumeration value="pedestrianCrossing" />
-            <xs:enumeration value="quaysideOrRiverBank" />
-            <xs:enumeration value="riskOfIce" />
-            <xs:enumeration value="sideWindsLeft" />
-            <xs:enumeration value="sideWindsRight" />
-            <xs:enumeration value="wildAnimalsCrossing" />
-            <xs:enumeration value="insufficientStructureGauge" />
-            <xs:enumeration value="poorVisibility" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="AmountOfMoney">
-        <xs:restriction base="com:Decimal">
-            <xs:totalDigits value="8" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="AutomatedTrafficManagement">
-        <xs:complexContent>
-            <xs:extension base="tro:PlannedDynamicTrafficRegulation">
-                <xs:sequence>
-                    <xs:element name="trafficRegulation"
-                                type="tro:TrafficRegulation"
-                                minOccurs="0"
-                                maxOccurs="unbounded" />
-                    <xs:element name="_automatedTrafficManagementExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="BendOfPriorityRoadTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="fromLeft" />
-            <xs:enumeration value="fromRight" />
-            <xs:enumeration value="toLeft" />
-            <xs:enumeration value="toRight" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="Condition"
-                    abstract="true">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AmbientWarnings">
+    <xs:complexContent>
+      <xs:extension base="tro:Warning">
         <xs:sequence>
-            <xs:element name="negate"
-                        type="com:Boolean"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="legalBasis"
-                        type="tro:LegalBasis"
-                        minOccurs="0" />
-            <xs:element name="_conditionExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
+          <xs:element name="ambientWarningsType" type="tro:_AmbientWarningTypeEnum" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_ambientWarningsExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="ConditionOperator">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="or" />
-            <xs:enumeration value="xor" />
-            <xs:enumeration value="and" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="ConditionSet">
-        <xs:complexContent>
-            <xs:extension base="tro:Condition">
-                <xs:sequence>
-                    <xs:element name="operator"
-                                type="tro:_ConditionOperator"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="conditions"
-                                type="tro:Condition"
-                                maxOccurs="unbounded" />
-                    <xs:element name="_conditionSetExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="DirectionRestriction">
-        <xs:complexContent>
-            <xs:extension base="tro:TypeOfRegulation">
-                <xs:sequence>
-                    <xs:element name="directionRestrictionType"
-                                type="tro:_DirectionRestrictionTypeEnum"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="respectBicycle"
-                                type="com:Boolean"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="respectPedestrian"
-                                type="com:Boolean"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="respectMotorisedPersonalTransportDevices"
-                                type="com:Boolean"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="_directionRestrictionExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="DirectionRestrictionTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="aheadOnly" />
-            <xs:enumeration value="keepLeft" />
-            <xs:enumeration value="keepRight" />
-            <xs:enumeration value="roundabout" />
-            <xs:enumeration value="straightAheadOrTurnLeft" />
-            <xs:enumeration value="straightAheadOrTurnRight" />
-            <xs:enumeration value="turnLeft" />
-            <xs:enumeration value="turnLeftAhead" />
-            <xs:enumeration value="turnLeftOrTurnRight" />
-            <xs:enumeration value="turnRight" />
-            <xs:enumeration value="turnRightAhead" />
-            <xs:enumeration value="oneWayTraffic" />
-            <xs:enumeration value="noUTurn" />
-            <xs:enumeration value="noLeftTurn" />
-            <xs:enumeration value="noRightTurn" />
-            <xs:enumeration value="passEitherSide" />
-            <xs:enumeration value="noReversing" />
-            <xs:enumeration value="noThroughRoad" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="DriverCharacteristicsTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="disabledWithPermit" />
-            <xs:enumeration value="learnerdriver" />
-            <xs:enumeration value="localResident" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="DriverCondition">
-        <xs:complexContent>
-            <xs:extension base="tro:Condition">
-                <xs:sequence>
-                    <xs:element name="driverCharacteristicsType"
-                                type="tro:_DriverCharacteristicsTypeEnum"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="ageOfDriver"
-                                type="com:NonNegativeInteger"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="licenseCharacteristics"
-                                type="tro:_LicenseCharacteristicsEnum"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="timeLicenseHeld"
-                                type="tro:Duration"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="_driverConditionExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="Duration">
-        <xs:restriction base="com:String" />
-    </xs:simpleType>
-    <xs:complexType name="LegalBasis">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="AmbientWarningTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="accompaniedHorsesCrossing"/>
+      <xs:enumeration value="airfield"/>
+      <xs:enumeration value="cattle"/>
+      <xs:enumeration value="fallingRocks"/>
+      <xs:enumeration value="looseGravel"/>
+      <xs:enumeration value="migratoryToadCrossing"/>
+      <xs:enumeration value="otherDanger"/>
+      <xs:enumeration value="pedestrianCrossing"/>
+      <xs:enumeration value="quaysideOrRiverBank"/>
+      <xs:enumeration value="riskOfIce"/>
+      <xs:enumeration value="sideWindsLeft"/>
+      <xs:enumeration value="sideWindsRight"/>
+      <xs:enumeration value="wildAnimalsCrossing"/>
+      <xs:enumeration value="insufficientStructureGauge"/>
+      <xs:enumeration value="poorVisibility"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AmountOfMoney">
+    <xs:restriction base="com:Decimal">
+      <xs:totalDigits value="8"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AutomatedTrafficManagement">
+    <xs:complexContent>
+      <xs:extension base="tro:PlannedDynamicTrafficRegulation">
         <xs:sequence>
-            <xs:element name="name"
-                        type="com:MultilingualString"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="version"
-                        type="com:String"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="date"
-                        type="com:Date"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="_legalBasisExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
+          <xs:element name="trafficRegulation" type="tro:TrafficRegulation" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="_automatedTrafficManagementExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="LicenseCharacteristicsEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="provisional" />
-            <xs:enumeration value="permanent" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="LocationCondition">
-        <xs:complexContent>
-            <xs:extension base="tro:Condition">
-                <xs:sequence>
-                    <xs:element name="implementedLocation"
-                                type="loc:LocationReference"
-                                minOccurs="0" />
-                    <xs:element name="locationByOrder"
-                                type="loc:LocationReference"
-                                minOccurs="0" />
-                    <xs:element name="trafficImpactLocation"
-                                type="loc:LocationReference"
-                                minOccurs="0" />
-                    <xs:element name="_locationConditionExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="MandatoryRoadOrCarriagewayOrLaneUsage">
-        <xs:complexContent>
-            <xs:extension base="tro:TypeOfRegulation">
-                <xs:sequence>
-                    <xs:element name="exclusive"
-                                type="com:Boolean"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="respectMandatoryTraffic"
-                                type="com:Boolean"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="segregatedLanes"
-                                type="com:Boolean"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="contraFlowLane"
-                                type="com:Boolean"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="otherObligation"
-                                type="com:MultilingualString"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="_mandatoryRoadOrCarriagewayOrLaneUsageExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="MinimumDistanceRestriction">
-        <xs:complexContent>
-            <xs:extension base="tro:TypeOfRegulation">
-                <xs:sequence>
-                    <xs:element name="value"
-                                type="com:MetresAsFloat"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_minimumDistanceRestrictionExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="NonVehicularRoadUserCondition">
-        <xs:complexContent>
-            <xs:extension base="tro:Condition">
-                <xs:sequence>
-                    <xs:element name="nonVehicularRoadUser"
-                                type="tro:_NonVehicularRoadUserTypeEnum"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_nonVehicularRoadUserConditionExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="NonVehicularRoadUserTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="cattleDrive" />
-            <xs:enumeration value="pedestrians" />
-            <xs:enumeration value="riddenOrAccompaniedHorses" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="OccupantCondition">
-        <xs:complexContent>
-            <xs:extension base="tro:Condition">
-                <xs:sequence>
-                    <xs:element name="disabledWithPermit"
-                                type="com:Boolean"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="numberOfOccupants"
-                                type="com:NonNegativeInteger"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="_occupantConditionExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="OvertakingBan">
-        <xs:complexContent>
-            <xs:extension base="tro:TypeOfRegulation">
-                <xs:sequence>
-                    <xs:element name="_overtakingBanExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="PermitCondition">
-        <xs:complexContent>
-            <xs:extension base="tro:Condition">
-                <xs:sequence>
-                    <xs:element name="whereToApplyForPermit"
-                                type="com:Url"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="locationRelatedPermit"
-                                type="com:Boolean"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="maxDurationOfPermit"
-                                type="tro:Duration"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="whereToCallForPermit"
-                                type="com:String"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="permitSubjectToFee"
-                                type="tro:PermitSubjectToFee"
-                                minOccurs="0" />
-                    <xs:element name="_permitConditionExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="PermitSubjectToFee">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="BendOfPriorityRoadTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="fromLeft"/>
+      <xs:enumeration value="fromRight"/>
+      <xs:enumeration value="toLeft"/>
+      <xs:enumeration value="toRight"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Condition" abstract="true">
+    <xs:sequence>
+      <xs:element name="negate" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="legalBasis" type="tro:LegalBasis" minOccurs="0"/>
+      <xs:element name="_conditionExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ConditionOperator">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="or"/>
+      <xs:enumeration value="xor"/>
+      <xs:enumeration value="and"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ConditionSet">
+    <xs:complexContent>
+      <xs:extension base="tro:Condition">
         <xs:sequence>
-            <xs:element name="amountDue"
-                        type="tro:AmountOfMoney"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="maximumAccessDuration"
-                        type="tro:Duration"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="minimumTimeToNextEntry"
-                        type="tro:Duration"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="paymentInformation"
-                        type="com:Url"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="_permitSubjectToFeeExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
+          <xs:element name="operator" type="tro:_ConditionOperator" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="conditions" type="tro:Condition" maxOccurs="unbounded"/>
+          <xs:element name="_conditionSetExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="PlannedDynamicTrafficRegulation">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DirectionRestriction">
+    <xs:complexContent>
+      <xs:extension base="tro:TypeOfRegulation">
         <xs:sequence>
-            <xs:element name="issuingAuthority"
-                        type="com:MultilingualString"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="_plannedDynamicTrafficRegulationExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
+          <xs:element name="directionRestrictionType" type="tro:_DirectionRestrictionTypeEnum" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="respectBicycle" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="respectPedestrian" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="respectMotorisedPersonalTransportDevices" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="_directionRestrictionExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="PlannedDynamicTrafficRegulations">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="DirectionRestrictionTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="aheadOnly"/>
+      <xs:enumeration value="keepLeft"/>
+      <xs:enumeration value="keepRight"/>
+      <xs:enumeration value="roundabout"/>
+      <xs:enumeration value="straightAheadOrTurnLeft"/>
+      <xs:enumeration value="straightAheadOrTurnRight"/>
+      <xs:enumeration value="turnLeft"/>
+      <xs:enumeration value="turnLeftAhead"/>
+      <xs:enumeration value="turnLeftOrTurnRight"/>
+      <xs:enumeration value="turnRight"/>
+      <xs:enumeration value="turnRightAhead"/>
+      <xs:enumeration value="oneWayTraffic"/>
+      <xs:enumeration value="noUTurn"/>
+      <xs:enumeration value="noLeftTurn"/>
+      <xs:enumeration value="noRightTurn"/>
+      <xs:enumeration value="passEitherSide"/>
+      <xs:enumeration value="noReversing"/>
+      <xs:enumeration value="noThroughRoad"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DriverCharacteristicsTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="disabledWithPermit"/>
+      <xs:enumeration value="learnerdriver"/>
+      <xs:enumeration value="localResident"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="DriverCondition">
+    <xs:complexContent>
+      <xs:extension base="tro:Condition">
         <xs:sequence>
-            <xs:element name="plannedDynamicTrafficRegulation"
-                        type="tro:PlannedDynamicTrafficRegulation"
-                        maxOccurs="unbounded" />
-            <xs:element name="_plannedDynamicTrafficRegulationsExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
+          <xs:element name="driverCharacteristicsType" type="tro:_DriverCharacteristicsTypeEnum" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="ageOfDriver" type="com:NonNegativeInteger" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="licenseCharacteristics" type="tro:_LicenseCharacteristicsEnum" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="timeLicenseHeld" type="tro:Duration" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="_driverConditionExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="PriorityRule">
-        <xs:complexContent>
-            <xs:extension base="tro:TypeOfRegulation">
-                <xs:sequence>
-                    <xs:element name="priorityRuleType"
-                                type="tro:_PriorityRuleTypeEnum"
-                                minOccurs="1"
-                                maxOccurs="unbounded" />
-                    <xs:element name="respectBicycle"
-                                type="com:Boolean"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="_priorityRuleExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="PriorityRuleTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="giveWay" />
-            <xs:enumeration value="giveWayToTram" />
-            <xs:enumeration value="giveWayToOncomingVehicles" />
-            <xs:enumeration value="stop" />
-            <xs:enumeration value="giveWayToRail" />
-            <xs:enumeration value="giveWayToSchoolCrossingPatrol" />
-            <xs:enumeration value="bendOfPriorityRoadFromLeft" />
-            <xs:enumeration value="bendOfPriorityRoadFromRight" />
-            <xs:enumeration value="priorityAtNextJunction" />
-            <xs:enumeration value="priorityRoad" />
-            <xs:enumeration value="priorityOverOncomingVehicles" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="ReasonForRegulationEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="trafficSafety" />
-            <xs:enumeration value="trafficOrder" />
-            <xs:enumeration value="roadworks" />
-            <xs:enumeration value="protectionOfRoad" />
-            <xs:enumeration value="protectionOfNoiseAndEmissions" />
-            <xs:enumeration value="protectionOfWaters" />
-            <xs:enumeration value="publicSafety" />
-            <xs:enumeration value="researchAndTest" />
-            <xs:enumeration value="other" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="Rerouting">
-        <xs:complexContent>
-            <xs:extension base="tro:TypeOfRegulation">
-                <xs:sequence>
-                    <xs:element name="_reroutingExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="RoadCondition">
-        <xs:complexContent>
-            <xs:extension base="tro:Condition">
-                <xs:sequence>
-                    <xs:element name="roadType"
-                                type="tro:_RoadTypeEnum"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_roadConditionExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="RoadOrCarriagewayOrLaneLayoutType">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="road" />
-            <xs:enumeration value="lane" />
-            <xs:enumeration value="carriageway" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="RoadTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="motorway" />
-            <xs:enumeration value="expressRoad" />
-            <xs:enumeration value="insideBuiltUpAreas" />
-            <xs:enumeration value="outsideBuiltUpAreas" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="RoadWarning">
-        <xs:complexContent>
-            <xs:extension base="tro:Warning">
-                <xs:sequence>
-                    <xs:element name="roadWarningType"
-                                type="tro:_RoadWarningTypeEnum"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_roadWarningExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="RoadWarningTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="bendLeft" />
-            <xs:enumeration value="bendRight" />
-            <xs:enumeration value="crossroadsWithPriorityFromRight" />
-            <xs:enumeration value="doubleBendFirstToLeft" />
-            <xs:enumeration value="doubleBendFirstToRight" />
-            <xs:enumeration value="roadNarrowsBothSides" />
-            <xs:enumeration value="roadNarrowsLeft" />
-            <xs:enumeration value="roadNarrowsRight" />
-            <xs:enumeration value="roadWorks" />
-            <xs:enumeration value="trafficLightsAhead" />
-            <xs:enumeration value="unevenRoad" />
-            <xs:enumeration value="slipperyRoad" />
-            <xs:enumeration value="roadHump" />
-            <xs:enumeration value="roadDip" />
-            <xs:enumeration value="lateralStep" />
-            <xs:enumeration value="accident" />
-            <xs:enumeration value="roundabout" />
-            <xs:enumeration value="swingBridge" />
-            <xs:enumeration value="obstacleOnTheRoad" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="RushHourLaneRestriction">
-        <xs:complexContent>
-            <xs:extension base="tro:TypeOfRegulation">
-                <xs:sequence>
-                    <xs:element name="clearRushHourLane"
-                                type="com:Boolean"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="rushHourLaneOpen"
-                                type="com:Boolean"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="_rushHourLaneRestrictionExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="Speed">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="Duration">
+    <xs:restriction base="com:String"/>
+  </xs:simpleType>
+  <xs:complexType name="LegalBasis">
+    <xs:sequence>
+      <xs:element name="name" type="com:MultilingualString" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="version" type="com:String" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="date" type="com:Date" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="_legalBasisExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="LicenseCharacteristicsEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="provisional"/>
+      <xs:enumeration value="permanent"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="LocationCondition">
+    <xs:complexContent>
+      <xs:extension base="tro:Condition">
         <xs:sequence>
-            <xs:element name="numericValue"
-                        type="com:Decimal"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="unitOfMeasure"
-                        type="tro:_UnitOfSpeedEnum"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="_speedExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
+          <xs:element name="implementedLocation" type="loc:LocationReference" minOccurs="0"/>
+          <xs:element name="locationByOrder" type="loc:LocationReference" minOccurs="0"/>
+          <xs:element name="trafficImpactLocation" type="loc:LocationReference" minOccurs="0"/>
+          <xs:element name="_locationConditionExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="SpeedLimit">
-        <xs:complexContent>
-            <xs:extension base="tro:TypeOfRegulation">
-                <xs:sequence>
-                    <xs:element name="weatherRelatedRoadConditionType"
-                                type="com:_WeatherRelatedRoadConditionTypeEnum"
-                                minOccurs="0"
-                                maxOccurs="unbounded" />
-                    <xs:element name="walkingSpeed"
-                                type="com:Boolean"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="minValue"
-                                type="tro:Speed"
-                                minOccurs="0" />
-                    <xs:element name="maxValue"
-                                type="tro:Speed"
-                                minOccurs="0" />
-                    <xs:element name="advisorySpeed"
-                                type="tro:Speed"
-                                minOccurs="0" />
-                    <xs:element name="_speedLimitExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="StandingOrParkingRestricitonTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="parkingProhibited" />
-            <xs:enumeration value="standingAndParkingProhibited" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="StandingOrParkingRestriction">
-        <xs:complexContent>
-            <xs:extension base="tro:TypeOfRegulation">
-                <xs:sequence>
-                    <xs:element name="standingOrParkingRestrictionType"
-                                type="tro:_StandingOrParkingRestricitonTypeEnum"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="vergeOrFootwayAlso"
-                                type="com:Boolean"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="vergeOrFootwayOnly"
-                                type="com:Boolean"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="permittedStandingTime"
-                                type="tro:Duration"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="permittedParkingTime"
-                                type="tro:Duration"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="paidParking"
-                                type="com:Boolean"
-                                minOccurs="0"
-                                maxOccurs="1" />
-                    <xs:element name="_standingOrParkingRestrictionExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="SteepHill">
-        <xs:complexContent>
-            <xs:extension base="tro:Warning">
-                <xs:sequence>
-                    <xs:element name="roadGradientValue"
-                                type="com:Percentage"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="steepHillDirectionType"
-                                type="tro:_SteepHillDirectionTypeEnum"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_steepHillExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="SteepHillDirectionTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="downwards" />
-            <xs:enumeration value="upwards" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="TrafficAhead">
-        <xs:complexContent>
-            <xs:extension base="tro:Warning">
-                <xs:sequence>
-                    <xs:element name="trafficAheadType"
-                                type="tro:_TrafficAheadTypeEnum"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_trafficAheadExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:simpleType name="TrafficAheadTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="children" />
-            <xs:enumeration value="cycleRoute" />
-            <xs:enumeration value="pedestrianCrossing" />
-            <xs:enumeration value="levelCrossing" />
-            <xs:enumeration value="ridingPath" />
-            <xs:enumeration value="trafficQueues" />
-            <xs:enumeration value="twoWayTraffic" />
-            <xs:enumeration value="tramsCrossingAhead" />
-            <xs:enumeration value="levelCrossingWithGate" />
-            <xs:enumeration value="busCrossing" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="TrafficRegulation">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MandatoryRoadOrCarriagewayOrLaneUsage">
+    <xs:complexContent>
+      <xs:extension base="tro:TypeOfRegulation">
         <xs:sequence>
-            <xs:element name="status"
-                        type="tro:_TrafficRegulationStatusEnum"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="typeOfRegulation"
-                        type="tro:TypeOfRegulation"
-                        maxOccurs="unbounded" />
-            <xs:element name="condition"
-                        type="tro:Condition"
-                        minOccurs="0" />
-            <xs:element name="_trafficRegulationExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
+          <xs:element name="exclusive" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="respectMandatoryTraffic" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="segregatedLanes" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="contraFlowLane" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="otherObligation" type="com:MultilingualString" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="_mandatoryRoadOrCarriagewayOrLaneUsageExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="TrafficRegulationInstallerTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="police" />
-            <xs:enumeration value="roadOperator" />
-            <xs:enumeration value="publicWorkOrUtilityCompanies" />
-            <xs:enumeration value="fireBrigade" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="TrafficRegulationOrder">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MinimumDistanceRestriction">
+    <xs:complexContent>
+      <xs:extension base="tro:TypeOfRegulation">
         <xs:sequence>
-            <xs:element name="description"
-                        type="com:MultilingualString"
-                        minOccurs="0"
-                        maxOccurs="1" />
-            <xs:element name="issuingAuthority"
-                        type="com:MultilingualString"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="reason"
-                        type="tro:_ReasonForRegulationEnum"
-                        minOccurs="0"
-                        maxOccurs="unbounded" />
-            <xs:element name="regulationId"
-                        type="com:String"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="status"
-                        type="tro:_TrafficRegulationOrderStatusEnum"
-                        minOccurs="1"
-                        maxOccurs="1" />
-            <xs:element name="implementedValidity"
-                        type="com:Validity"
-                        minOccurs="0" />
-            <xs:element name="validityByOrder"
-                        type="com:Validity"
-                        minOccurs="0" />
-            <xs:element name="implementedLocation"
-                        type="loc:LocationReference"
-                        minOccurs="0" />
-            <xs:element name="locationByOrder"
-                        type="loc:LocationReference"
-                        minOccurs="0" />
-            <xs:element name="trafficRegulation"
-                        type="tro:TrafficRegulation"
-                        maxOccurs="unbounded" />
-            <xs:element name="legalBasis"
-                        type="tro:LegalBasis"
-                        minOccurs="0" />
-            <xs:element name="_trafficRegulationOrderExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
+          <xs:element name="value" type="com:MetresAsFloat" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_minimumDistanceRestrictionExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-        <xs:attribute name="id"
-                      type="xs:string"
-                      use="required" />
-        <xs:attribute name="version"
-                      type="xs:string"
-                      use="required" />
-    </xs:complexType>
-    <xs:simpleType name="TrafficRegulationOrderStatusEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="planned" />
-            <xs:enumeration value="madeButNotImplemented" />
-            <xs:enumeration value="madeAndPartiallyImplemented" />
-            <xs:enumeration value="madeAndImplemented" />
-            <xs:enumeration value="partiallyWithdrawn" />
-            <xs:enumeration value="withdrawn" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="TrafficRegulationPublication">
-        <xs:complexContent>
-            <xs:extension base="com:PayloadPublication">
-                <xs:sequence>
-                    <xs:element name="trafficRegulationsFromCompetentAuthorities"
-                                type="tro:TrafficRegulationsFromCompetentAuthorities"
-                                minOccurs="0" />
-                    <xs:element name="trafficRegulationsByAuthorisedActors"
-                                type="tro:TrafficRegulationsByAuthorisedActors"
-                                minOccurs="0" />
-                    <xs:element name="adHocTrafficRegulations"
-                                type="tro:AdHocTrafficRegulations"
-                                minOccurs="0" />
-                    <xs:element name="plannedDynamicTrafficRegulations"
-                                type="tro:PlannedDynamicTrafficRegulations"
-                                minOccurs="0" />
-                    <xs:element name="_trafficRegulationPublicationExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-                <xs:attribute name="id"
-                              type="xs:string"
-                              use="required" />
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="TrafficRegulationsByAuthorisedActors">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="NonVehicularRoadUserCondition">
+    <xs:complexContent>
+      <xs:extension base="tro:Condition">
         <xs:sequence>
-            <xs:element name="activatedRegulation"
-                        type="tro:ActivatedRegulation"
-                        maxOccurs="unbounded" />
-            <xs:element name="_trafficRegulationsByAuthorisedActorsExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
+          <xs:element name="nonVehicularRoadUser" type="tro:_NonVehicularRoadUserTypeEnum" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_nonVehicularRoadUserConditionExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="TrafficRegulationsFromCompetentAuthorities">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="NonVehicularRoadUserTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="cattleDrive"/>
+      <xs:enumeration value="pedestrians"/>
+      <xs:enumeration value="riddenOrAccompaniedHorses"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="OccupantCondition">
+    <xs:complexContent>
+      <xs:extension base="tro:Condition">
         <xs:sequence>
-            <xs:element name="trafficRegulationOrder"
-                        type="tro:TrafficRegulationOrder"
-                        maxOccurs="unbounded" />
-            <xs:element name="_trafficRegulationsFromCompetentAuthoritiesExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
+          <xs:element name="disabledWithPermit" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="numberOfOccupants" type="com:NonNegativeInteger" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="_occupantConditionExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="TrafficRegulationStatusEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="active" />
-            <xs:enumeration value="beingSetUp" />
-            <xs:enumeration value="beingShutDown" />
-            <xs:enumeration value="scheduled" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="TrafficSignals">
-        <xs:complexContent>
-            <xs:extension base="tro:PlannedDynamicTrafficRegulation">
-                <xs:sequence>
-                    <xs:element name="signalPhaseAndTimingReference"
-                                type="com:Reference"
-                                minOccurs="1"
-                                maxOccurs="1" />
-                    <xs:element name="_trafficSignalsExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="TypeOfRegulation"
-                    abstract="true">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="OvertakingBan">
+    <xs:complexContent>
+      <xs:extension base="tro:TypeOfRegulation">
         <xs:sequence>
-            <xs:element name="_typeOfRegulationExtension"
-                        type="com:_ExtensionType"
-                        minOccurs="0" />
+          <xs:element name="_overtakingBanExtension" type="com:_ExtensionType" minOccurs="0"/>
         </xs:sequence>
-    </xs:complexType>
-    <xs:simpleType name="UnitOfSpeedEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="kilometresPerHour" />
-            <xs:enumeration value="milesPerHour" />
-            <xs:enumeration value="_extended" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="ValidityCondition">
-        <xs:complexContent>
-            <xs:extension base="tro:Condition">
-                <xs:sequence>
-                    <xs:element name="implementedValidity"
-                                type="com:Validity"
-                                minOccurs="0" />
-                    <xs:element name="validityByOrder"
-                                type="com:Validity"
-                                minOccurs="0" />
-                    <xs:element name="_validityConditionExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="VehicleCondition">
-        <xs:complexContent>
-            <xs:extension base="tro:Condition">
-                <xs:sequence>
-                    <xs:element name="vehicleCharacteristics"
-                                type="com:VehicleCharacteristics" />
-                    <xs:element name="_vehicleConditionExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="Warning"
-                    abstract="true">
-        <xs:complexContent>
-            <xs:extension base="tro:TypeOfRegulation">
-                <xs:sequence>
-                    <xs:element name="_warningExtension"
-                                type="com:_ExtensionType"
-                                minOccurs="0" />
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PermitCondition">
+    <xs:complexContent>
+      <xs:extension base="tro:Condition">
+        <xs:sequence>
+          <xs:element name="whereToApplyForPermit" type="com:Url" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="locationRelatedPermit" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="maxDurationOfPermit" type="tro:Duration" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="whereToCallForPermit" type="com:String" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="permitSubjectToFee" type="tro:PermitSubjectToFee" minOccurs="0"/>
+          <xs:element name="_permitConditionExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PermitSubjectToFee">
+    <xs:sequence>
+      <xs:element name="amountDue" type="tro:AmountOfMoney" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="maximumAccessDuration" type="tro:Duration" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="minimumTimeToNextEntry" type="tro:Duration" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="paymentInformation" type="com:Url" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="_permitSubjectToFeeExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PlannedDynamicTrafficRegulation">
+    <xs:sequence>
+      <xs:element name="issuingAuthority" type="com:MultilingualString" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="_plannedDynamicTrafficRegulationExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PlannedDynamicTrafficRegulations">
+    <xs:sequence>
+      <xs:element name="plannedDynamicTrafficRegulation" type="tro:PlannedDynamicTrafficRegulation" maxOccurs="unbounded"/>
+      <xs:element name="_plannedDynamicTrafficRegulationsExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PriorityRule">
+    <xs:complexContent>
+      <xs:extension base="tro:TypeOfRegulation">
+        <xs:sequence>
+          <xs:element name="priorityRuleType" type="tro:_PriorityRuleTypeEnum" minOccurs="1" maxOccurs="unbounded"/>
+          <xs:element name="respectBicycle" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="_priorityRuleExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="PriorityRuleTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="giveWay"/>
+      <xs:enumeration value="giveWayToTram"/>
+      <xs:enumeration value="giveWayToOncomingVehicles"/>
+      <xs:enumeration value="stop"/>
+      <xs:enumeration value="giveWayToRail"/>
+      <xs:enumeration value="giveWayToSchoolCrossingPatrol"/>
+      <xs:enumeration value="bendOfPriorityRoadFromLeft"/>
+      <xs:enumeration value="bendOfPriorityRoadFromRight"/>
+      <xs:enumeration value="priorityAtNextJunction"/>
+      <xs:enumeration value="priorityRoad"/>
+      <xs:enumeration value="priorityOverOncomingVehicles"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ReasonForRegulationEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="trafficSafety"/>
+      <xs:enumeration value="trafficOrder"/>
+      <xs:enumeration value="roadworks"/>
+      <xs:enumeration value="protectionOfRoad"/>
+      <xs:enumeration value="protectionOfNoiseAndEmissions"/>
+      <xs:enumeration value="protectionOfWaters"/>
+      <xs:enumeration value="publicSafety"/>
+      <xs:enumeration value="researchAndTest"/>
+      <xs:enumeration value="other"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Rerouting">
+    <xs:complexContent>
+      <xs:extension base="tro:TypeOfRegulation">
+        <xs:sequence>
+          <xs:element name="_reroutingExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RoadCondition">
+    <xs:complexContent>
+      <xs:extension base="tro:Condition">
+        <xs:sequence>
+          <xs:element name="roadType" type="tro:_RoadTypeEnum" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_roadConditionExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="RoadOrCarriagewayOrLaneLayoutType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="road"/>
+      <xs:enumeration value="lane"/>
+      <xs:enumeration value="carriageway"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RoadTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="motorway"/>
+      <xs:enumeration value="expressRoad"/>
+      <xs:enumeration value="insideBuiltUpAreas"/>
+      <xs:enumeration value="outsideBuiltUpAreas"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="RoadWarning">
+    <xs:complexContent>
+      <xs:extension base="tro:Warning">
+        <xs:sequence>
+          <xs:element name="roadWarningType" type="tro:_RoadWarningTypeEnum" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_roadWarningExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="RoadWarningTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="bendLeft"/>
+      <xs:enumeration value="bendRight"/>
+      <xs:enumeration value="crossroadsWithPriorityFromRight"/>
+      <xs:enumeration value="doubleBendFirstToLeft"/>
+      <xs:enumeration value="doubleBendFirstToRight"/>
+      <xs:enumeration value="roadNarrowsBothSides"/>
+      <xs:enumeration value="roadNarrowsLeft"/>
+      <xs:enumeration value="roadNarrowsRight"/>
+      <xs:enumeration value="roadWorks"/>
+      <xs:enumeration value="trafficLightsAhead"/>
+      <xs:enumeration value="unevenRoad"/>
+      <xs:enumeration value="slipperyRoad"/>
+      <xs:enumeration value="roadHump"/>
+      <xs:enumeration value="roadDip"/>
+      <xs:enumeration value="lateralStep"/>
+      <xs:enumeration value="accident"/>
+      <xs:enumeration value="roundabout"/>
+      <xs:enumeration value="swingBridge"/>
+      <xs:enumeration value="obstacleOnTheRoad"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="RushHourLaneRestriction">
+    <xs:complexContent>
+      <xs:extension base="tro:TypeOfRegulation">
+        <xs:sequence>
+          <xs:element name="clearRushHourLane" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="rushHourLaneOpen" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="_rushHourLaneRestrictionExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Speed">
+    <xs:sequence>
+      <xs:element name="numericValue" type="com:Decimal" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="unitOfMeasure" type="tro:_UnitOfSpeedEnum" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="_speedExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SpeedLimit">
+    <xs:complexContent>
+      <xs:extension base="tro:TypeOfRegulation">
+        <xs:sequence>
+          <xs:element name="weatherRelatedRoadConditionType" type="com:_WeatherRelatedRoadConditionTypeEnum" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="walkingSpeed" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="minValue" type="tro:Speed" minOccurs="0"/>
+          <xs:element name="maxValue" type="tro:Speed" minOccurs="0"/>
+          <xs:element name="advisorySpeed" type="tro:Speed" minOccurs="0"/>
+          <xs:element name="_speedLimitExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="StandingOrParkingRestricitonTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="parkingProhibited"/>
+      <xs:enumeration value="standingAndParkingProhibited"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="StandingOrParkingRestriction">
+    <xs:complexContent>
+      <xs:extension base="tro:TypeOfRegulation">
+        <xs:sequence>
+          <xs:element name="standingOrParkingRestrictionType" type="tro:_StandingOrParkingRestricitonTypeEnum" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="vergeOrFootwayAlso" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="vergeOrFootwayOnly" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="permittedStandingTime" type="tro:Duration" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="permittedParkingTime" type="tro:Duration" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="paidParking" type="com:Boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="_standingOrParkingRestrictionExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SteepHill">
+    <xs:complexContent>
+      <xs:extension base="tro:Warning">
+        <xs:sequence>
+          <xs:element name="roadGradientValue" type="com:Percentage" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="steepHillDirectionType" type="tro:_SteepHillDirectionTypeEnum" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_steepHillExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="SteepHillDirectionTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="downwards"/>
+      <xs:enumeration value="upwards"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="TrafficAhead">
+    <xs:complexContent>
+      <xs:extension base="tro:Warning">
+        <xs:sequence>
+          <xs:element name="trafficAheadType" type="tro:_TrafficAheadTypeEnum" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_trafficAheadExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="TrafficAheadTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="children"/>
+      <xs:enumeration value="cycleRoute"/>
+      <xs:enumeration value="pedestrianCrossing"/>
+      <xs:enumeration value="levelCrossing"/>
+      <xs:enumeration value="ridingPath"/>
+      <xs:enumeration value="trafficQueues"/>
+      <xs:enumeration value="twoWayTraffic"/>
+      <xs:enumeration value="tramsCrossingAhead"/>
+      <xs:enumeration value="levelCrossingWithGate"/>
+      <xs:enumeration value="busCrossing"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="TrafficRegulation">
+    <xs:sequence>
+      <xs:element name="status" type="tro:_TrafficRegulationStatusEnum" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="typeOfRegulation" type="tro:TypeOfRegulation" maxOccurs="unbounded"/>
+      <xs:element name="condition" type="tro:Condition" minOccurs="0"/>
+      <xs:element name="_trafficRegulationExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="TrafficRegulationInstallerTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="police"/>
+      <xs:enumeration value="roadOperator"/>
+      <xs:enumeration value="publicWorkOrUtilityCompanies"/>
+      <xs:enumeration value="fireBrigade"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="TrafficRegulationOrder">
+    <xs:sequence>
+      <xs:element name="description" type="com:MultilingualString" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="issuingAuthority" type="com:MultilingualString" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="reason" type="tro:_ReasonForRegulationEnum" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="regulationId" type="com:String" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="status" type="tro:_TrafficRegulationOrderStatusEnum" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="implementedValidity" type="com:Validity" minOccurs="0"/>
+      <xs:element name="validityByOrder" type="com:Validity" minOccurs="0"/>
+      <xs:element name="implementedLocation" type="loc:LocationReference" minOccurs="0"/>
+      <xs:element name="locationByOrder" type="loc:LocationReference" minOccurs="0"/>
+      <xs:element name="trafficRegulation" type="tro:TrafficRegulation" maxOccurs="unbounded"/>
+      <xs:element name="legalBasis" type="tro:LegalBasis" minOccurs="0"/>
+      <xs:element name="_trafficRegulationOrderExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="version" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:simpleType name="TrafficRegulationOrderStatusEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="planned"/>
+      <xs:enumeration value="madeButNotImplemented"/>
+      <xs:enumeration value="madeAndPartiallyImplemented"/>
+      <xs:enumeration value="madeAndImplemented"/>
+      <xs:enumeration value="partiallyWithdrawn"/>
+      <xs:enumeration value="withdrawn"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="TrafficRegulationPublication">
+    <xs:complexContent>
+      <xs:extension base="com:PayloadPublication">
+        <xs:sequence>
+          <xs:element name="trafficRegulationsFromCompetentAuthorities" type="tro:TrafficRegulationsFromCompetentAuthorities" minOccurs="0"/>
+          <xs:element name="trafficRegulationsByAuthorisedActors" type="tro:TrafficRegulationsByAuthorisedActors" minOccurs="0"/>
+          <xs:element name="adHocTrafficRegulations" type="tro:AdHocTrafficRegulations" minOccurs="0"/>
+          <xs:element name="plannedDynamicTrafficRegulations" type="tro:PlannedDynamicTrafficRegulations" minOccurs="0"/>
+          <xs:element name="_trafficRegulationPublicationExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TrafficRegulationsByAuthorisedActors">
+    <xs:sequence>
+      <xs:element name="activatedRegulation" type="tro:ActivatedRegulation" maxOccurs="unbounded"/>
+      <xs:element name="_trafficRegulationsByAuthorisedActorsExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TrafficRegulationsFromCompetentAuthorities">
+    <xs:sequence>
+      <xs:element name="trafficRegulationOrder" type="tro:TrafficRegulationOrder" maxOccurs="unbounded"/>
+      <xs:element name="_trafficRegulationsFromCompetentAuthoritiesExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="TrafficRegulationStatusEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="active"/>
+      <xs:enumeration value="beingSetUp"/>
+      <xs:enumeration value="beingShutDown"/>
+      <xs:enumeration value="scheduled"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="TrafficSignals">
+    <xs:complexContent>
+      <xs:extension base="tro:PlannedDynamicTrafficRegulation">
+        <xs:sequence>
+          <xs:element name="signalPhaseAndTimingReference" type="com:Reference" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="_trafficSignalsExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TypeOfRegulation" abstract="true">
+    <xs:sequence>
+      <xs:element name="_typeOfRegulationExtension" type="com:_ExtensionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="UnitOfSpeedEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="kilometresPerHour"/>
+      <xs:enumeration value="milesPerHour"/>
+      <xs:enumeration value="_extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ValidityCondition">
+    <xs:complexContent>
+      <xs:extension base="tro:Condition">
+        <xs:sequence>
+          <xs:element name="implementedValidity" type="com:Validity" minOccurs="0"/>
+          <xs:element name="validityByOrder" type="com:Validity" minOccurs="0"/>
+          <xs:element name="_validityConditionExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="VehicleCondition">
+    <xs:complexContent>
+      <xs:extension base="tro:Condition">
+        <xs:sequence>
+          <xs:element name="vehicleCharacteristics" type="com:VehicleCharacteristics"/>
+          <xs:element name="_vehicleConditionExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Warning" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="tro:TypeOfRegulation">
+        <xs:sequence>
+          <xs:element name="_warningExtension" type="com:_ExtensionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
 </xs:schema>
