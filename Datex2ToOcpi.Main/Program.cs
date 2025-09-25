@@ -42,6 +42,7 @@ namespace Datex2ToOcpi.Main
                     // This is true for the Mobi.e file, but is it for all of them?
                     if (payload is EnergyInfrastructureTablePublication eiPublication)
                     {
+                        Console.WriteLine($"There are {eiPublication.EnergyInfrastructureTable.Count} energy infrastructure tables.");
                         foreach (var site in eiPublication.EnergyInfrastructureTable)
                         {
                             foreach (var eiSite in site.EnergyInfrastructureSite)
