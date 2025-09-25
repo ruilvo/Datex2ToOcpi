@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           xmlns:locx="http://datex2.eu/schema/3/locationExtension"
+           version="3.3"
+           targetNamespace="http://datex2.eu/schema/3/locationExtension"
+           xmlns:fac="http://datex2.eu/schema/3/facilities"
+           xmlns:com="http://datex2.eu/schema/3/common"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:import namespace="http://datex2.eu/schema/3/common"
+               schemaLocation="DATEXII_3_Common.xsd" />
+    <xs:import namespace="http://datex2.eu/schema/3/facilities"
+               schemaLocation="DATEXII_3_Facilities.xsd" />
+    <xs:complexType name="_AddressLineTypeEnum">
+        <xs:simpleContent>
+            <xs:extension base="locx:AddressLineTypeEnum">
+                <xs:attribute name="_extendedValue"
+                              type="xs:string" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="_HouseNumberSideEnum">
+        <xs:simpleContent>
+            <xs:extension base="locx:HouseNumberSideEnum">
+                <xs:attribute name="_extendedValue"
+                              type="xs:string" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="Address">
+        <xs:sequence>
+            <xs:element name="postcode"
+                        type="com:String"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="city"
+                        type="com:MultilingualString"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="countryCode"
+                        type="com:CountryCode"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="addressLine"
+                        type="locx:AddressLine"
+                        minOccurs="0"
+                        maxOccurs="unbounded" />
+            <xs:element name="_addressExtension"
+                        type="com:_ExtensionType"
+                        minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AddressLine">
+        <xs:sequence>
+            <xs:element name="type"
+                        type="locx:_AddressLineTypeEnum"
+                        minOccurs="1"
+                        maxOccurs="1" />
+            <xs:element name="text"
+                        type="com:MultilingualString"
+                        minOccurs="1"
+                        maxOccurs="1" />
+            <xs:element name="_addressLineExtension"
+                        type="com:_ExtensionType"
+                        minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="order"
+                      type="com:NonNegativeInteger"
+                      use="required" />
+    </xs:complexType>
+    <xs:simpleType name="AddressLineTypeEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="apartment" />
+            <xs:enumeration value="building" />
+            <xs:enumeration value="poBox" />
+            <xs:enumeration value="unit" />
+            <xs:enumeration value="region" />
+            <xs:enumeration value="town" />
+            <xs:enumeration value="districtTerritory" />
+            <xs:enumeration value="floor" />
+            <xs:enumeration value="street" />
+            <xs:enumeration value="houseNumber" />
+            <xs:enumeration value="generalTextLine" />
+            <xs:enumeration value="_extended" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="FacilityLocation">
+        <xs:sequence>
+            <xs:element name="timeZone"
+                        type="fac:TimeZone"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="address"
+                        type="locx:Address"
+                        minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="HouseNumberSideEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="odd" />
+            <xs:enumeration value="even" />
+            <xs:enumeration value="_extended" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="NamedAreaCode">
+        <xs:restriction base="com:String">
+            <xs:maxLength value="8" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="NamedAreaExtended">
+        <xs:sequence>
+            <xs:element name="namedAreaCode"
+                        type="locx:NamedAreaCode"
+                        minOccurs="1"
+                        maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="SupplementaryPositionalDescriptionExtended">
+        <xs:sequence>
+            <xs:element name="houseNumberSide"
+                        type="locx:_HouseNumberSideEnum"
+                        minOccurs="0"
+                        maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
