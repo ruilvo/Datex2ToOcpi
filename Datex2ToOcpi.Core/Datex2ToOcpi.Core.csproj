@@ -5,4 +5,7 @@
         <ImplicitUsings>disable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\OCM.API.Model\OCM.API.Common.Model.csproj" />
+    </ItemGroup>
 </Project>
