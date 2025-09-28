@@ -1,5 +1,5 @@
 ﻿namespace Datex2ToOcpi.Core.Strategy;
 
-public class MobieStrategy: DefaultStrategy
+public class MobieStrategy : IStrategy
 {
 }
