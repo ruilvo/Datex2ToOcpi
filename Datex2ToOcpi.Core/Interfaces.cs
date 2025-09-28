@@ -1,4 +1,4 @@
-namespace Datex2ToOcpi.Core.Interfaces;
+namespace Datex2ToOcpi.Core;
 
 public interface IHasId
 {
