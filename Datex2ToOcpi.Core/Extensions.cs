@@ -49,12 +49,9 @@ public static class ExtensionMethods
             Address = strategy.Address(eiSite),
             City = strategy.City(eiSite),
             Country = strategy.Country(eiSite),
-            Postal_code = strategy.Country(eiSite),
-
-            Coordinates = new GeoLocation()
-            {
-                Latitude = eiSite.LocationReference.Point
-            }
+            Postal_code = strategy.PostalCode(eiSite),
+            Coordinates = strategy.Coordinates(eiSite),
+            // Parking_type // Not on the Datex II data
         };
 
         return location;

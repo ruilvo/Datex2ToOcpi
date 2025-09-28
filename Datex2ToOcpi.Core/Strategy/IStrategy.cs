@@ -1,6 +1,11 @@
+using System;
 using System.Linq;
+using System.Globalization;
+
+using OCM.Model.OCPI;
 
 using Datex2ToOcpi.Core.Models.Datex2.EnergyInfrastructure;
+using Datex2ToOcpi.Core.Models.Datex2.LocationReferencing;
 
 namespace Datex2ToOcpi.Core.Strategy;
 
@@ -76,5 +81,17 @@ public interface IStrategy
                      .FacilityLocation
                      .Address
                      .Postcode;
+    }
+
+    public GeoLocation Coordinates(EnergyInfrastructureSite eiSite)
+    {
+        var pointLocation = eiSite.LocationReference as PointLocation;
+        var coordinates = (pointLocation?.PointByCoordinates?.PointCoordinates)
+                        ?? throw new InvalidOperationException("LocationReference is not a PointLocation with PointByCoordinates.");
+        return new GeoLocation()
+        {
+            Latitude = coordinates.Latitude.ToString("F7", CultureInfo.InvariantCulture),
+            Longitude = coordinates.Longitude.ToString("F7", CultureInfo.InvariantCulture),
+        };
     }
 }
