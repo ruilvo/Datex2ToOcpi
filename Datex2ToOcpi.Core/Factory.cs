@@ -1,8 +1,8 @@
-using Datex2ToOcpi.Core.Models.Datex2.EnergyInfrastructure;
-
 using System;
 using System.IO;
 using System.Xml.Serialization;
+
+using Datex2ToOcpi.Core.Models.Datex2.EnergyInfrastructure;
 
 namespace Datex2ToOcpi.Core;
 
