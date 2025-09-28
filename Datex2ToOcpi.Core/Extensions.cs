@@ -1,10 +1,12 @@
-﻿using Datex2ToOcpi.Core.Models.Datex2.EnergyInfrastructure;
-using OCM.Model.OCPI;
-
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
+
+using OCM.Model.OCPI;
+
+using Datex2ToOcpi.Core.Models.Datex2.EnergyInfrastructure;
+using Datex2ToOcpi.Core.Strategy;
 
 namespace Datex2ToOcpi.Core;
 
@@ -34,45 +36,20 @@ public static class ExtensionMethods
     /// <returns>A new <see cref="Location"/> instance representing the OCPI location
     /// mapped from the specified <see cref="EnergyInfrastructureSite"/>.
     /// </returns>
-    public static Location ToOcpiLocation(this EnergyInfrastructureSite eiSite, Strategy.DefaultStrategy strategy)
+    public static Location ToOcpiLocation(this EnergyInfrastructureSite eiSite, IStrategy? strategy = null)
     {
+        strategy ??= new DefaultStrategy();
 
         Location location = new()
         {
             Country_code = strategy.CountryCode(eiSite),
             Party_id = strategy.PartyId(eiSite),
-
-            // There seems to be no standard way of identifying a location in Datex II.
-            // This is a best-effort approach.
-            Id = eiSite.Id,
-
-            Publish = true,
-
-            Address = facilityLocation
-                      .Address
-                      .AddressLine[0]
-                      .Text
-                      .Values[0]
-                      .Value,
-
-            // The Spanish NAP is not following this correctly and so this value will
-            // probably be an empty string.
-            City = facilityLocation
-                   .Address
-                   .City
-                   .Values[0]
-                   .Value,
-
-            // Datex II uses two letter country codes, OCPI uses three letter codes.
-            Country = ISO3166.Country.List.First(
-                    c => c.TwoLetterCode == facilityLocation
-                                            .Address
-                                            .CountryCode
-                ).ThreeLetterCode,
-
-            Postal_code = facilityLocation
-                          .Address
-                          .Postcode,
+            Id = strategy.Id(eiSite),
+            Publish = true, // Not available in DATEX II
+            Address = strategy.Address(eiSite),
+            City = strategy.City(eiSite),
+            Country = strategy.Country(eiSite),
+            Postal_code = strategy.Country(eiSite),
 
             Coordinates = new GeoLocation()
             {
