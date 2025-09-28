@@ -1,6 +1,6 @@
 ﻿using Datex2ToOcpi.Core.Models.Datex2.EnergyInfrastructure;
 
-namespace Datex2ToOcpi.Core;
+namespace Datex2ToOcpi.Core.Helpers;
 
 public static class Helpers
 {
